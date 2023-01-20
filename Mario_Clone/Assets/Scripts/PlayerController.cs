@@ -6,11 +6,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Vector3 nextPlayerPos;
-    
+
+    [SerializeField]
+    PlayerIntoMap playerIntoMap;
     [SerializeField]
     Animator playerAnimator;
     [SerializeField]
-    GameObject player;
+    GameObject playerCharacter;
     [SerializeField]
     Rigidbody2D playerRB;
     [SerializeField]
@@ -18,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     string groundLayerName = "Ground";
+    [SerializeField]
+    float waitCntForPositionPlayer;
     [SerializeField]
     float speed;
     [SerializeField]
@@ -29,6 +33,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     bool jump;
 
+    IEnumerator Coroutine_PositionPlayerIntoMap()
+    {
+        while (true)
+        {
+            for (int i = 0; i < waitCntForPositionPlayer; i++)
+            {
+                yield return null;
+            }
+
+            playerIntoMap.PositionPlayerIntoMap();
+        }
+    }
+    
     void Jump()
     {
         var isJumpKeyDown = Input.GetKeyDown(KeyCode.UpArrow);
@@ -66,11 +83,11 @@ public class PlayerController : MonoBehaviour
     {
         if (dir > 0)
         {
-            player.transform.rotation = Quaternion.identity;
+            playerCharacter.transform.rotation = Quaternion.identity;
         }
         else if (dir < 0)
         {
-            player.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            playerCharacter.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         }
     }
 
@@ -85,27 +102,29 @@ public class PlayerController : MonoBehaviour
 
         return false;
     }
-    
+
     void Start()
     {
         nextPlayerPos = Vector3.zero;
+        StartCoroutine(Coroutine_PositionPlayerIntoMap());
     }
 
     void Update()
     {
-        Move();
-        Jump();
-
-        if (IsPlayerOnGround() && isJumping)
+        if (isJumping && IsPlayerOnGround())
         {
             isJumping = false;
             playerAnimator.SetBool("IsJump", false);
         }
-        else if(!IsPlayerOnGround() && !isJumping)
+        else if (!isJumping && !IsPlayerOnGround())
         {
             isJumping = true;
             playerAnimator.SetBool("IsJump", true);
+
         }
+        
+        Move();
+        Jump();
     }
 
     void FixedUpdate()
