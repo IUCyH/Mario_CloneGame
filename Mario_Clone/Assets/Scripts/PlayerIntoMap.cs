@@ -14,36 +14,23 @@ public class PlayerIntoMap : MonoBehaviour
     float maxPositionY = 0.96f;
     [SerializeField]
     float minPositionY = 0f;
-    
-    [SerializeField]
-    bool isPlayerOutsideMap;
 
     public void PositionPlayerIntoMap()
     {
         playerViewportPos = camera.WorldToViewportPoint(transform.position);
-        isPlayerOutsideMap = false;
 
-        if (IsPlayerXIsOutside())
+        if (IsPlayerXIsOutside() || IsPlayerYIsOutside())
         {
             CorrectionPlayerX();
-        }
-
-        if (IsPlayerYIsOutside())
-        {
             CorrectionPlayerY();
-        }
-
-        if (isPlayerOutsideMap)
-        {
             SetPlayerWorldPosition();
         }
     }
-
+    
     bool IsPlayerXIsOutside()
     {
         if (playerViewportPos.x > maxPositionX || playerViewportPos.x < minPositionX)
         {
-            isPlayerOutsideMap = true;
             return true;
         }
 
@@ -54,7 +41,6 @@ public class PlayerIntoMap : MonoBehaviour
     {
         if (playerViewportPos.y > maxPositionY || playerViewportPos.y < minPositionY)
         {
-            isPlayerOutsideMap = true;
             return true;
         }
 
