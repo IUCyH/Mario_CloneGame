@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     bool isJumping;
     [SerializeField]
     bool jump;
+    bool isPressedJumpKey;
 
     IEnumerator Coroutine_PositionPlayerIntoMap()
     {
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
         if (isJumpKeyDown && !isJumping)
         {
             jump = true;
+            isPressedJumpKey = true;
         }
     }
 
@@ -91,6 +93,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    bool CheckIsJumping()
+    {
+        if (!IsPlayerOnGround() && isPressedJumpKey)
+        {
+            return true;
+        }
+
+        return false;
+    }
     bool IsPlayerOnGround()
     {
         var raycast = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0f, Vector2.down, boxCastDistance, 1 << LayerMask.NameToLayer(groundLayerName));
@@ -102,7 +113,6 @@ public class PlayerController : MonoBehaviour
 
         return false;
     }
-
     void Start()
     {
         nextPlayerPos = Vector3.zero;
@@ -111,24 +121,27 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (isJumping && IsPlayerOnGround())
+        bool jumpingNow = CheckIsJumping();
+        
+        if (!jumpingNow && isJumping)
         {
             isJumping = false;
+            isPressedJumpKey = false;
             playerAnimator.SetBool("IsJump", false);
         }
-        else if (!isJumping && !IsPlayerOnGround())
+        else if (jumpingNow && !isJumping)
         {
             isJumping = true;
             playerAnimator.SetBool("IsJump", true);
-
         }
         
-        Move();
         Jump();
     }
 
     void FixedUpdate()
     {
+        Move();
+        
         if (jump)
         {
             jump = false;
