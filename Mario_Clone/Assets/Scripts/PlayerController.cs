@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,20 +5,19 @@ public class PlayerController : MonoBehaviour
     Vector3 nextPlayerPos;
 
     [SerializeField]
-    PlayerIntoMap playerIntoMap;
+    MovementLimit playerMovementLimit;
     [SerializeField]
     Animator playerAnimator;
     [SerializeField]
-    GameObject playerCharacter;
+    Transform player;
+    [SerializeField]
+    Transform mario;
     [SerializeField]
     Rigidbody2D playerRB;
     [SerializeField]
     Collider2D playerCollider;
-
-    [SerializeField]
-    string groundLayerName = "Ground";
-    [SerializeField]
-    float waitCntForPositionPlayer;
+    
+    int groundLayer;
     [SerializeField]
     float speed;
     [SerializeField]
@@ -34,19 +30,6 @@ public class PlayerController : MonoBehaviour
     bool jump;
     bool isPressedJumpKey;
 
-    IEnumerator Coroutine_PositionPlayerIntoMap()
-    {
-        while (true)
-        {
-            for (int i = 0; i < waitCntForPositionPlayer; i++)
-            {
-                yield return null;
-            }
-
-            playerIntoMap.PositionPlayerIntoMap();
-        }
-    }
-    
     void Jump()
     {
         var isJumpKeyDown = Input.GetKeyDown(KeyCode.UpArrow);
@@ -55,6 +38,8 @@ public class PlayerController : MonoBehaviour
         {
             jump = true;
             isPressedJumpKey = true;
+            
+            playerAnimator.SetBool("IsJump", true);
         }
     }
 
@@ -62,8 +47,11 @@ public class PlayerController : MonoBehaviour
     {
         var dir = Input.GetAxis("Horizontal");
         nextPlayerPos.x = dir * speed * Time.deltaTime;
-        
-        transform.position += nextPlayerPos;
+
+        if (!playerMovementLimit.IsPlayerCannotMove(dir))
+        {
+            player.position += nextPlayerPos;
+        }
 
         SetPlayerRotation(dir);
         SetMoveAnimation(dir);
@@ -85,11 +73,11 @@ public class PlayerController : MonoBehaviour
     {
         if (dir > 0)
         {
-            playerCharacter.transform.rotation = Quaternion.identity;
+            mario.rotation = Quaternion.identity;
         }
         else if (dir < 0)
         {
-            playerCharacter.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            mario.rotation = Quaternion.Euler(0f, 180f, 0f);
         }
     }
 
@@ -104,9 +92,9 @@ public class PlayerController : MonoBehaviour
     }
     bool IsPlayerOnGround()
     {
-        var raycast = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0f, Vector2.down, boxCastDistance, 1 << LayerMask.NameToLayer(groundLayerName));
+        var raycast = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0f, Vector2.down, boxCastDistance, groundLayer);
 
-        if (raycast.collider != null)
+        if (!ReferenceEquals(raycast.collider, null))
         {
             return true;
         }
@@ -116,7 +104,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         nextPlayerPos = Vector3.zero;
-        StartCoroutine(Coroutine_PositionPlayerIntoMap());
+        groundLayer = 1 << LayerMask.NameToLayer("Ground");
     }
 
     void Update()
@@ -132,7 +120,6 @@ public class PlayerController : MonoBehaviour
         else if (jumpingNow && !isJumping)
         {
             isJumping = true;
-            playerAnimator.SetBool("IsJump", true);
         }
         
         Jump();
