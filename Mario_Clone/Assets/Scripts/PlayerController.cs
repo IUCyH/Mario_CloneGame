@@ -127,12 +127,12 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
-        
         if (jump)
         {
             jump = false;
             playerRB.AddForce(jumpForce * Time.fixedDeltaTime * Vector2.up, ForceMode2D.Impulse);
         }
+        
+        Move();
     }
 }
