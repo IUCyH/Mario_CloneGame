@@ -1,19 +1,38 @@
 using System;
 using UnityEngine;
 
-public class MonsterAI : MonoBehaviour
+public abstract class MonsterAI : MonoBehaviour
 {
-    Transform monster;
-    float speed;
+    const float rayCastDistance = 12f;
+    protected Transform monster;
     
-    void Start()
+    Animator monsterAnimator;
+    
+    int playerLayer;
+    bool isMoving;
+    
+    public abstract void Move();
+
+    public bool IsCanMove()
     {
-        monster = transform;
+        if (isMoving) return true;
+
+        RaycastHit2D raycastHit = Physics2D.Raycast(monster.position, Vector2.left, rayCastDistance, playerLayer);
+
+        if (!ReferenceEquals(raycastHit.collider, null))
+        {
+            monsterAnimator.SetBool("Move", true);
+            isMoving = true;
+            return true;
+        }
+
+        return false;
     }
 
-    void Update()
+    void Start()
     {
-        var dir = Vector3.left;
-        monster.position += speed * Time.deltaTime * dir;
+        monsterAnimator = GetComponent<Animator>();
+        monster = transform;
+        playerLayer = 1 << LayerMask.NameToLayer("Player");
     }
 }
