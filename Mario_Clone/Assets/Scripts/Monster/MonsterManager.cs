@@ -18,9 +18,14 @@ public class MonsterManager : SingletonMonoBehaviour<MonsterManager>
     {
         foreach (var monster in monsters)
         {
-            if (monster.IsCanMove())
+            if (!monster.IsOutsideTheScreen() && monster.IsCanMove())
             {
                 monster.Move();
+            }
+            
+            else if (monster.IsOutsideTheScreen())
+            {
+                monster.SetCannotMove();
             }
         }
     }

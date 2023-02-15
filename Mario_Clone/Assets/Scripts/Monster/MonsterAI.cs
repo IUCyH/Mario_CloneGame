@@ -3,10 +3,13 @@ using UnityEngine;
 
 public abstract class MonsterAI : MonoBehaviour
 {
-    const float rayCastDistance = 12f;
+    const float RayCastDistance = 12f;
+    protected int moveAnimParamId;
     protected Transform monster;
+    protected Animator monsterAnimator;
     
-    Animator monsterAnimator;
+    Transform endPosOfCam;
+    Transform player;
     
     int playerLayer;
     bool isMoving;
@@ -17,11 +20,11 @@ public abstract class MonsterAI : MonoBehaviour
     {
         if (isMoving) return true;
 
-        RaycastHit2D raycastHit = Physics2D.Raycast(monster.position, Vector2.left, rayCastDistance, playerLayer);
+        var raycastDir = player.position - monster.position;
+        RaycastHit2D raycastHit = Physics2D.Raycast(monster.position, raycastDir, RayCastDistance, playerLayer);
 
         if (!ReferenceEquals(raycastHit.collider, null))
         {
-            monsterAnimator.SetBool("Move", true);
             isMoving = true;
             return true;
         }
@@ -29,10 +32,39 @@ public abstract class MonsterAI : MonoBehaviour
         return false;
     }
 
+    public bool IsOutsideTheScreen()
+    {
+        if (endPosOfCam.position.x > monster.position.x)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void SetCannotMove()
+    {
+        if (!gameObject.activeSelf)
+        {
+            return;
+        }
+        
+        isMoving = false;
+        gameObject.SetActive(false);
+    }
+
     void Start()
     {
-        monsterAnimator = GetComponent<Animator>();
+        var endOfCamObj = GameObject.FindGameObjectWithTag("EndOfCam");
+        var playerObj = GameObject.FindGameObjectWithTag("Player");
+        
+        endPosOfCam = endOfCamObj.transform;
+        player = playerObj.transform;
         monster = transform;
+        
+        monsterAnimator = GetComponent<Animator>();
+        moveAnimParamId = Animator.StringToHash("Move");
+        
         playerLayer = 1 << LayerMask.NameToLayer("Player");
     }
 }
