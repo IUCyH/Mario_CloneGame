@@ -6,7 +6,7 @@ public class MonsterManager : SingletonMonoBehaviour<MonsterManager>
 {
     [SerializeField]
     MonsterAI[] monsters;
-    
+
     // Start is called before the first frame update
     protected override void OnStart()
     {
@@ -18,14 +18,14 @@ public class MonsterManager : SingletonMonoBehaviour<MonsterManager>
     {
         foreach (var monster in monsters)
         {
-            if (!monster.IsOutsideTheScreen() && monster.IsCanMove())
+            if (monster.IsOutsideTheScreen())
             {
-                monster.Move();
+                monster.SetDamage();
             }
             
-            else if (monster.IsOutsideTheScreen())
+            else if (monster.IsCanMove())
             {
-                monster.SetCannotMove();
+                monster.Move();
             }
         }
     }

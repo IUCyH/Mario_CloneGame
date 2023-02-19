@@ -1,31 +1,38 @@
 using System;
 using UnityEngine;
 
+public enum MonsterState
+{
+    None = -1,
+    Moving,
+    Die,
+}
+
 public abstract class MonsterAI : MonoBehaviour
 {
     const float RayCastDistance = 12f;
-    protected int moveAnimParamId;
     protected Transform monster;
     protected Animator monsterAnimator;
-    
+
     Transform endPosOfCam;
     Transform player;
-    
+
+    MonsterState currentState;
     int playerLayer;
-    bool isMoving;
-    
+
     public abstract void Move();
+    public abstract void SetDamage();
 
     public bool IsCanMove()
     {
-        if (isMoving) return true;
+        if (StateEquals(currentState, MonsterState.Moving)) return true;
 
         var raycastDir = player.position - monster.position;
         RaycastHit2D raycastHit = Physics2D.Raycast(monster.position, raycastDir, RayCastDistance, playerLayer);
 
         if (!ReferenceEquals(raycastHit.collider, null))
         {
-            isMoving = true;
+            currentState = MonsterState.Moving;
             return true;
         }
 
@@ -42,15 +49,19 @@ public abstract class MonsterAI : MonoBehaviour
         return false;
     }
 
-    public void SetCannotMove()
+    public void SetActiveToFalse()
     {
         if (!gameObject.activeSelf)
         {
             return;
         }
         
-        isMoving = false;
         gameObject.SetActive(false);
+    }
+
+    bool StateEquals(MonsterState state1, MonsterState state2)
+    {
+        return state1 == state2;
     }
 
     void Start()
@@ -61,10 +72,10 @@ public abstract class MonsterAI : MonoBehaviour
         endPosOfCam = endOfCamObj.transform;
         player = playerObj.transform;
         monster = transform;
-        
+
         monsterAnimator = GetComponent<Animator>();
-        moveAnimParamId = Animator.StringToHash("Move");
         
         playerLayer = 1 << LayerMask.NameToLayer("Player");
+        currentState = MonsterState.None;
     }
 }
