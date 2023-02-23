@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 73382785}
   m_Layer: 3
   m_Name: Goomba_14
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 254085784}
   m_Layer: 3
   m_Name: Goomba_05
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1090,7 +1090,7 @@ GameObject:
   - component: {fileID: 451541958}
   m_Layer: 3
   m_Name: Goomba_13
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1705,7 +1705,7 @@ GameObject:
   - component: {fileID: 674296667}
   m_Layer: 3
   m_Name: Goomba_10
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1986,7 +1986,7 @@ GameObject:
   - component: {fileID: 784092513}
   m_Layer: 3
   m_Name: Goomba_07
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2153,7 +2153,7 @@ GameObject:
   - component: {fileID: 792692046}
   m_Layer: 3
   m_Name: Goomba_08
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2484,7 +2484,7 @@ GameObject:
   - component: {fileID: 855730149}
   m_Layer: 3
   m_Name: Goomba_03
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3240,7 +3240,7 @@ GameObject:
   - component: {fileID: 1073386223}
   m_Layer: 3
   m_Name: Koopa_00
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3651,7 +3651,7 @@ GameObject:
   - component: {fileID: 1308711312}
   m_Layer: 3
   m_Name: Goomba_01
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3900,7 +3900,7 @@ GameObject:
   - component: {fileID: 1330382286}
   m_Layer: 3
   m_Name: Goomba_12
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4425,7 +4425,7 @@ GameObject:
   - component: {fileID: 1444374168}
   m_Layer: 3
   m_Name: Goomba_06
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5023,7 +5023,7 @@ GameObject:
   - component: {fileID: 1536960053}
   m_Layer: 3
   m_Name: Goomba_04
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5190,7 +5190,7 @@ GameObject:
   - component: {fileID: 1545029287}
   m_Layer: 3
   m_Name: Goomba_00
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6084,7 +6084,7 @@ GameObject:
   - component: {fileID: 1769033423}
   m_Layer: 3
   m_Name: Goomba_02
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6661,7 +6661,7 @@ GameObject:
   - component: {fileID: 1858677297}
   m_Layer: 3
   m_Name: Goomba_09
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7311,7 +7311,7 @@ GameObject:
   - component: {fileID: 1960987611}
   m_Layer: 3
   m_Name: Goomba_11
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13882,7 +13882,7 @@ GameObject:
   - component: {fileID: 2123090391}
   m_Layer: 3
   m_Name: Goomba_15
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
