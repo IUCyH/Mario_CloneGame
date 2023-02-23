@@ -4,6 +4,10 @@ using UnityEngine;
 public class Goomba : MonsterAI
 {
     [SerializeField]
+    Collider2D monsterColl;
+    [SerializeField]
+    Rigidbody2D monsterRB;
+    [SerializeField]
     float speed;
 
     public override void Move()
@@ -11,9 +15,20 @@ public class Goomba : MonsterAI
         monster.position += speed * Time.deltaTime * Vector3.left;
     }
 
-    public override void SetDamage()
+    protected override void AdditionalActionsWhenGotDamage()
     {
-        speed = 0f;
-        monsterAnimator.enabled = false;
+        StopPhysics();
+    }
+
+    void StopPhysics()
+    {
+        monsterRB.bodyType = RigidbodyType2D.Kinematic;   
+        monsterColl.enabled = false;
+    }
+
+    protected override void OnStart()
+    {
+        monsterRB = GetComponent<Rigidbody2D>();
+        monsterColl = GetComponent<Collider2D>();
     }
 }

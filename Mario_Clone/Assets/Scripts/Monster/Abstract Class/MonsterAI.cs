@@ -11,21 +11,36 @@ public enum MonsterState
 public abstract class MonsterAI : MonoBehaviour
 {
     const float RayCastDistance = 12f;
+    
     protected Transform monster;
-    protected Animator monsterAnimator;
+    
 
     Transform endPosOfCam;
     Transform player;
+    SpriteRenderer monsterSprRenderer;
+    Animator monsterAnimator;
 
     MonsterState currentState;
+    
+    string monsterName;
     int playerLayer;
 
     public abstract void Move();
-    public abstract void SetDamage();
+    protected virtual void AdditionalActionsWhenGotDamage(){}
+    protected virtual void OnStart(){}
 
+    public void SetDamage()
+    {
+        monsterSprRenderer.sprite = MonsterManager.Instance.GetMonsterDieSprite(monsterName);
+        monsterAnimator.enabled = false;
+        currentState = MonsterState.Die;
+
+        AdditionalActionsWhenGotDamage();
+    }
     public bool IsCanMove()
     {
         if (StateEquals(currentState, MonsterState.Moving)) return true;
+        else if (StateEquals(currentState, MonsterState.Die)) return false;
 
         var raycastDir = player.position - monster.position;
         RaycastHit2D raycastHit = Physics2D.Raycast(monster.position, raycastDir, RayCastDistance, playerLayer);
@@ -74,8 +89,14 @@ public abstract class MonsterAI : MonoBehaviour
         monster = transform;
 
         monsterAnimator = GetComponent<Animator>();
+        monsterSprRenderer = GetComponent<SpriteRenderer>();
         
         playerLayer = 1 << LayerMask.NameToLayer("Player");
         currentState = MonsterState.None;
+
+        var nameSplitResult = name.Split('_');
+        monsterName = nameSplitResult[0];
+
+        OnStart();
     }
 }

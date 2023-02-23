@@ -11,10 +11,4 @@ public class Koopa : MonsterAI
     {
         monster.position += speed * Time.deltaTime * Vector3.left;
     }
-    
-    public override void SetDamage()
-    {
-        speed = 0f;
-        monsterAnimator.enabled = false;
-    }
 }

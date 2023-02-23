@@ -3,15 +3,19 @@ R
 "Assets/Scripts/CameraController.cs,1\9\19ab53079cee46b93c9edb6fcda45169a200d88f
 ^
 .Assets/Scripts/Utill/SingletonMonoBehaviour.cs,1\b\1bacebb4a7b67ab50ee2f2c48744745c8dd400bd
-O
-Assets/Scripts/MovementLimit.cs,7\9\79c2869a69fcd8187060217adc2c5ff93274a421
-R
-"Assets/Scripts/PlayerController.cs,4\4\44b5ee73c2a49f17e211a16dea550f3a1d42e622
-X
-(Assets/Scripts/Monster/MonsterManager.cs,6\5\65a55025c6279f40f6c1c950f9e18596ee2f4884
-S
-#Assets/Scripts/Monster/MonsterAI.cs,8\8\88d2c183dfd457ba9ebbc10fe5806a9c778256ef
-O
-Assets/Scripts/Monster/Koopa.cs,f\d\fd79ca70a59e3741c858532d5312d3fbc1ddcfa2
+j
+:Assets/Scripts/Player/Abstract Class/InteractionTrigger.cs,3\e\3e0fbc5df3e25461168eafb8cee1bdc8b1eaf88d
+`
+0Assets/Scripts/Player/AttackTriggerController.cs,b\8\b81ff56b1960b77cc37cc35aeecc7ce7750cd7a6
+b
+2Assets/Scripts/Monster/Abstract Class/MonsterAI.cs,7\7\777254de85f61d9bbc57ec21c07b68d57fc4b85e
 P
  Assets/Scripts/Monster/Goomba.cs,7\8\78698ffd3ea154637687c01ab08e46963e67ec6a
+O
+Assets/Scripts/Monster/Koopa.cs,f\d\fd79ca70a59e3741c858532d5312d3fbc1ddcfa2
+X
+(Assets/Scripts/Monster/MonsterManager.cs,6\5\65a55025c6279f40f6c1c950f9e18596ee2f4884
+Y
+)Assets/Scripts/Player/PlayerController.cs,c\1\c1b2abcd3d72732cf3bf687bc9080c1357596be9
+V
+&Assets/Scripts/Player/MovementLimit.cs,f\1\f101a2810ea892e81c5fa2ccb3be1d548c19d828

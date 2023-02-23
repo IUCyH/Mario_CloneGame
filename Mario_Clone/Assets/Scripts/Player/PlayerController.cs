@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     Vector3 nextPlayerPos;
-
+    
+    [SerializeField]
+    InteractionTrigger[] interactionTriggers;
     [SerializeField]
     MovementLimit playerMovementLimit;
     [SerializeField]
@@ -38,7 +41,8 @@ public class PlayerController : MonoBehaviour
         {
             jump = true;
             isPressedJumpKey = true;
-            
+
+            SetActiveInteractionTriggers(true);
             playerAnimator.SetBool("IsJump", true);
         }
     }
@@ -101,10 +105,20 @@ public class PlayerController : MonoBehaviour
 
         return false;
     }
+
+    void SetActiveInteractionTriggers(bool value)
+    {
+        foreach (var trigger in interactionTriggers)
+        {
+            trigger.SetActive(value);
+        }
+    }
     void Start()
     {
+        interactionTriggers = GetComponentsInChildren<InteractionTrigger>();
         nextPlayerPos = Vector3.zero;
         groundLayer = 1 << LayerMask.NameToLayer("Ground");
+        SetActiveInteractionTriggers(false);
     }
 
     void Update()
@@ -115,6 +129,8 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
             isPressedJumpKey = false;
+            
+            SetActiveInteractionTriggers(false);
             playerAnimator.SetBool("IsJump", false);
         }
         else if (jumpingNow && !isJumping)
