@@ -1,5 +1,5 @@
 
-Jcsharpsquid:S3903"-Move 'MonsterManager' into a named namespace.(éÙ÷
-Gcsharpsquid:S2933
-"#Make 'monsterDieSprDic' 'readonly'.(Ëï¯Ì8¸Àìëç0
-‚csharpsquid:S1450	"YRemove the field 'dieSprites' and declare it as a local variable in the relevant methods.(“—ù¼ıÿÿÿÿ8á‰çëç0
+Jcsharpsquid:S3903"-Move 'MonsterManager' into a named namespace.(éÙ÷
+Kcsharpsquid:S2933
+"'Make 'monsterDieDictionary' 'readonly'.(œ¡É¾8áÊúèè0
+‰csharpsquid:S1450"`Remove the field 'monsterDieSprites' and declare it as a local variable in the relevant methods.(ß¨¤§øÿÿÿÿ8£Ùûèè0

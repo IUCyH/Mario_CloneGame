@@ -10,14 +10,20 @@ public class Goomba : MonsterAI
     [SerializeField]
     float speed;
 
+    protected override void SetID()
+    {
+        base.id = 00;
+    }
+
     public override void Move()
     {
-        monster.position += speed * Time.deltaTime * Vector3.left;
+        base.monster.position += speed * Time.deltaTime * Vector3.left;
     }
 
     protected override void AdditionalActionsWhenGotDamage()
     {
         StopPhysics();
+        Invoke(nameof(base.SetActiveToFalse), MonsterManager.Instance.MonsterDisableTime);
     }
 
     void StopPhysics()

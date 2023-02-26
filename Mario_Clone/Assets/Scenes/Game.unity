@@ -5648,6 +5648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsters: []
+  monsterDisableTime: 0.3
 --- !u!1 &1628882999
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,6 @@ public class AttackTriggerController : InteractionTrigger
         if (!otherCollider.CompareTag(monsterTag)) return;
         
         var monster = otherCollider.GetComponent<MonsterAI>();
-        monster.SetDamage();
+        monster.SetDie();
     }
 }

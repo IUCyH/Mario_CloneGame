@@ -1,45 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MonsterManager : SingletonMonoBehaviour<MonsterManager>
 {
     [SerializeField]
-    MonsterAI[] monsters;
-    Sprite[] dieSprites;
-    Dictionary<string, Sprite> monsterDieSprDic = new Dictionary<string, Sprite>();
+    List<MonsterAI> monsters;
+    Dictionary<ushort, Sprite> monsterDieDictionary = new Dictionary<ushort, Sprite>();
+    Sprite[] monsterDieSprites;
+    [SerializeField]
+    float monsterDisableTime;
 
-    public Sprite GetMonsterDieSprite(string monsterName)
+    public float MonsterDisableTime
     {
-        return monsterDieSprDic[monsterName];
+        get { return monsterDisableTime; }
+    }
+
+    public Sprite GetMonsterDieSprite(ushort monsterID)
+    {
+        return monsterDieDictionary[monsterID];
+    }
+
+    public void RemoveMonsterFromList(MonsterAI monster)
+    {
+        monsters.Remove(monster);
     }
     // Start is called before the first frame update
     protected override void OnStart()
     {
-        monsters = transform.GetComponentsInChildren<MonsterAI>();
-        dieSprites = Resources.LoadAll<Sprite>("Monster/MonsterDieSprites");
+        monsters = transform.GetComponentsInChildren<MonsterAI>().ToList();
+        monsterDieSprites = Resources.LoadAll<Sprite>("Monster/MonsterDieSprites");
         
-        int length = dieSprites.Length;
+        int length = monsterDieSprites.Length;
         
-        for (int i = 0; i < length; i++)
+        for (ushort i = 0; i < length; i++)
         {
-            monsterDieSprDic.Add(dieSprites[i].name, dieSprites[i]);
+            monsterDieDictionary.Add(i, monsterDieSprites[i]);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach (var monster in monsters)
+        for(int i = 0; i < monsters.Count; i++)
         {
-            if (monster.IsOutsideTheScreen())
+            if (monsters[i].IsOutsideTheScreen())
             {
-                monster.SetActiveToFalse();
+                monsters[i].SetActiveToFalse();
+                RemoveMonsterFromList(monsters[i]);
             }
             
-            else if (monster.IsCanMove())
+            else if (monsters[i].IsCanMove())
             {
-                monster.Move();
+                monsters[i].Move();
             }
         }
     }
