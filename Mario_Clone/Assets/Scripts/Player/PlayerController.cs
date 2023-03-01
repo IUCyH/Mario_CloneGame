@@ -4,7 +4,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Vector3 nextPlayerPos;
-    
+
+    [SerializeField]
+    PlayerJump playerJump;
     [SerializeField]
     InteractionTrigger[] interactionTriggers;
     [SerializeField]
@@ -15,38 +17,20 @@ public class PlayerController : MonoBehaviour
     Transform player;
     [SerializeField]
     Transform mario;
-    [SerializeField]
-    Rigidbody2D playerRB;
-    [SerializeField]
-    Collider2D playerCollider;
     
-    int groundLayer;
+    int jumpCount;
     [SerializeField]
     float speed;
-    [SerializeField]
-    float jumpForce;
-    [SerializeField]
-    float boxCastDistance = 0.02f;
-    [SerializeField]
-    bool isJumping;
-    [SerializeField]
-    bool jump;
     bool isPressedJumpKey;
-
-    void Jump()
+    
+    public void SetActiveInteractionTriggers(bool value)
     {
-        var isJumpKeyDown = Input.GetKeyDown(KeyCode.UpArrow);
-
-        if (isJumpKeyDown && !isJumping)
+        foreach (var trigger in interactionTriggers)
         {
-            jump = true;
-            isPressedJumpKey = true;
-
-            SetActiveInteractionTriggers(true);
-            playerAnimator.SetBool("IsJump", true);
+            trigger.SetActive(value);
         }
     }
-
+    
     void Move()
     {
         var dir = Input.GetAxis("Horizontal");
@@ -84,71 +68,23 @@ public class PlayerController : MonoBehaviour
             mario.rotation = Quaternion.Euler(0f, 180f, 0f);
         }
     }
-
-    bool CheckIsJumping()
-    {
-        if (!IsPlayerOnGround() && isPressedJumpKey)
-        {
-            return true;
-        }
-
-        return false;
-    }
-    bool IsPlayerOnGround()
-    {
-        var raycast = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0f, Vector2.down, boxCastDistance, groundLayer);
-
-        if (!ReferenceEquals(raycast.collider, null))
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    void SetActiveInteractionTriggers(bool value)
-    {
-        foreach (var trigger in interactionTriggers)
-        {
-            trigger.SetActive(value);
-        }
-    }
+    
     void Start()
     {
         interactionTriggers = GetComponentsInChildren<InteractionTrigger>();
         nextPlayerPos = Vector3.zero;
-        groundLayer = 1 << LayerMask.NameToLayer("Ground");
+        
         SetActiveInteractionTriggers(false);
     }
 
     void Update()
     {
-        bool jumpingNow = CheckIsJumping();
-        
-        if (!jumpingNow && isJumping)
-        {
-            isJumping = false;
-            isPressedJumpKey = false;
-            
-            SetActiveInteractionTriggers(false);
-            playerAnimator.SetBool("IsJump", false);
-        }
-        else if (jumpingNow && !isJumping)
-        {
-            isJumping = true;
-        }
-        
-        Jump();
+        playerJump.CheckIsCanJumpAndActiveTriggers();
     }
 
     void FixedUpdate()
     {
-        if (jump)
-        {
-            jump = false;
-            playerRB.AddForce(jumpForce * Time.fixedDeltaTime * Vector2.up, ForceMode2D.Impulse);
-        }
-        
+        playerJump.Jump();
         Move();
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class AttackTriggerController : InteractionTrigger
 {
     const string monsterTag = "Monster";
+    [SerializeField]
+    PlayerController player;
     
     protected override void Interact(Collider2D otherCollider)
     {
@@ -12,5 +14,6 @@ public class AttackTriggerController : InteractionTrigger
         
         var monster = otherCollider.GetComponent<MonsterAI>();
         monster.SetDie();
+        //player.Jump(true);
     }
 }
