@@ -14,6 +14,6 @@ public class AttackTriggerController : InteractionTrigger
         
         var monster = otherCollider.GetComponent<MonsterAI>();
         monster.SetDie();
-        //player.Jump(true);
+        player.JumpWhenSteppingMonster();
     }
 }

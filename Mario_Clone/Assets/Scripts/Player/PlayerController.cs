@@ -3,25 +3,25 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Vector3 nextPlayerPos;
+
 
     [SerializeField]
+    PlayerMove playerMove;
+    [SerializeField]
     PlayerJump playerJump;
+
     [SerializeField]
     InteractionTrigger[] interactionTriggers;
     [SerializeField]
     MovementLimit playerMovementLimit;
-    [SerializeField]
-    Animator playerAnimator;
-    [SerializeField]
-    Transform player;
-    [SerializeField]
-    Transform mario;
-    
+
     int jumpCount;
-    [SerializeField]
-    float speed;
     bool isPressedJumpKey;
+
+    public void JumpWhenSteppingMonster()
+    {
+        playerJump.JumpWhenSteppingMonster();
+    }
     
     public void SetActiveInteractionTriggers(bool value)
     {
@@ -30,50 +30,16 @@ public class PlayerController : MonoBehaviour
             trigger.SetActive(value);
         }
     }
-    
-    void Move()
+
+    public bool IsPlayerCanMove(float dir)
     {
-        var dir = Input.GetAxis("Horizontal");
-        nextPlayerPos.x = dir * speed * Time.deltaTime;
-
-        if (!playerMovementLimit.IsPlayerCannotMove(dir))
-        {
-            player.position += nextPlayerPos;
-        }
-
-        SetPlayerRotation(dir);
-        SetMoveAnimation(dir);
-    }
-
-    void SetMoveAnimation(float dir)
-    {
-        if (dir != 0)
-        {
-            playerAnimator.SetBool("IsMove", true);
-        }
-        else
-        {
-            playerAnimator.SetBool("IsMove", false);
-        }
-    }
-
-    void SetPlayerRotation(float dir)
-    {
-        if (dir > 0)
-        {
-            mario.rotation = Quaternion.identity;
-        }
-        else if (dir < 0)
-        {
-            mario.rotation = Quaternion.Euler(0f, 180f, 0f);
-        }
+        return !playerMovementLimit.IsPlayerCannotMove(dir);
     }
     
     void Start()
     {
         interactionTriggers = GetComponentsInChildren<InteractionTrigger>();
-        nextPlayerPos = Vector3.zero;
-        
+
         SetActiveInteractionTriggers(false);
     }
 
@@ -85,6 +51,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         playerJump.Jump();
-        Move();
+        playerMove.Move();
     }
 }

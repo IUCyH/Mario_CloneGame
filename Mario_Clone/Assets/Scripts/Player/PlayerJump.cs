@@ -17,6 +17,9 @@ public class PlayerJump : MonoBehaviour
     float boxCastDistance;
     [SerializeField]
     float jumpForce;
+    [SerializeField]
+    float jumpForceWhenSteppingMonster;
+    
     bool canJump;
     bool steppingMonsterNow;
 
@@ -43,9 +46,22 @@ public class PlayerJump : MonoBehaviour
     {
         if (canJump)
         {
+            var force = jumpForce * Time.fixedDeltaTime * Vector2.up;
+
             canJump = false;
-            playerRB.AddForce(jumpForce * Time.fixedDeltaTime * Vector2.up, ForceMode2D.Impulse);
+            Jump(force, ForceMode2D.Impulse);
         }
+    }
+
+    public void JumpWhenSteppingMonster()
+    {
+        var force = jumpForceWhenSteppingMonster * Time.fixedDeltaTime * Vector2.up;
+
+        ResetAddForce();
+        
+        steppingMonsterNow = true;
+        Jump(force, ForceMode2D.Impulse);
+        steppingMonsterNow = false;
     }
     
     bool IsPlayerOnGround()
@@ -58,6 +74,16 @@ public class PlayerJump : MonoBehaviour
         }
 
         return false;
+    }
+
+    void Jump(Vector2 force, ForceMode2D mode = ForceMode2D.Force)
+    {
+        playerRB.AddForce(force, mode);
+    }
+
+    void ResetAddForce()
+    {
+        playerRB.velocity = Vector3.zero;
     }
 
     void Start()

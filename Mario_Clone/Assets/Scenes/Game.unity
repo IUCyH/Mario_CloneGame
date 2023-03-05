@@ -4834,8 +4834,9 @@ GameObject:
   - component: {fileID: 1519013948}
   - component: {fileID: 1519013952}
   - component: {fileID: 1519013949}
-  - component: {fileID: 1519013953}
   - component: {fileID: 1519013951}
+  - component: {fileID: 1519013954}
+  - component: {fileID: 1519013953}
   - component: {fileID: 1519013950}
   m_Layer: 8
   m_Name: Player
@@ -4893,13 +4894,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e6fbd4b58ee8a94ca26e0fb735d6c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMove: {fileID: 1519013954}
   playerJump: {fileID: 1519013951}
   interactionTriggers: []
   playerMovementLimit: {fileID: 1519013953}
-  playerAnimator: {fileID: 1519013950}
-  player: {fileID: 1519013947}
-  mario: {fileID: 30010363}
-  speed: 5
 --- !u!95 &1519013950
 Animator:
   serializedVersion: 3
@@ -4936,6 +4934,7 @@ MonoBehaviour:
   playerCollider: {fileID: 1519013952}
   boxCastDistance: 0.1
   jumpForce: 700
+  jumpForceWhenSteppingMonster: 700
 --- !u!61 &1519013952
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4976,6 +4975,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1519013947}
   rayCastDistance: 0.7
+--- !u!114 &1519013954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519013946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c332d30652342ce4b9679460c504f403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1519013949}
+  playerAnimator: {fileID: 1519013950}
+  playerTransform: {fileID: 0}
+  mario: {fileID: 30010363}
+  speed: 5
 --- !u!1 &1522857704
 GameObject:
   m_ObjectHideFlags: 0
