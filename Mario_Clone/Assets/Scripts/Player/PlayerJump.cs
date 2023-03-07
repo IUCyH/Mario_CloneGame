@@ -9,6 +9,8 @@ public class PlayerJump : MonoBehaviour
 
     [SerializeField]
     PlayerController player;
+    PlayerAnimation playerAnimController;
+    
     [SerializeField]
     Rigidbody2D playerRB;
     [SerializeField]
@@ -40,6 +42,7 @@ public class PlayerJump : MonoBehaviour
         }
         
         player.SetActiveInteractionTriggers(!playerOnGround);
+        SetJumpAnimation(playerOnGround);
     }
 
     public void Jump()
@@ -76,6 +79,18 @@ public class PlayerJump : MonoBehaviour
         return false;
     }
 
+    void SetJumpAnimation(bool playerOnGround)
+    {
+        if (playerOnGround)
+        {
+            playerAnimController.Stop(PlayerMotion.Jump);
+        }
+        else
+        {
+            playerAnimController.Play(PlayerMotion.Jump);
+        }
+    }
+
     void Jump(Vector2 force, ForceMode2D mode = ForceMode2D.Force)
     {
         playerRB.AddForce(force, mode);
@@ -89,5 +104,6 @@ public class PlayerJump : MonoBehaviour
     void Start()
     {
         groundLayer = 1 << LayerMask.NameToLayer("Ground");
+        playerAnimController = player.GetPlayerAnimController();
     }
 }

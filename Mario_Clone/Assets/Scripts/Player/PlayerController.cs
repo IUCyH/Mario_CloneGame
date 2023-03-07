@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-
+    PlayerAnimation playerAnimController;
+    
     [SerializeField]
     PlayerMove playerMove;
     [SerializeField]
@@ -18,6 +18,11 @@ public class PlayerController : MonoBehaviour
     int jumpCount;
     bool isPressedJumpKey;
 
+    public PlayerAnimation GetPlayerAnimController()
+    {
+        return playerAnimController;
+    }
+    
     public void JumpWhenSteppingMonster()
     {
         playerJump.JumpWhenSteppingMonster();
@@ -39,7 +44,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         interactionTriggers = GetComponentsInChildren<InteractionTrigger>();
-
+        playerAnimController = new PlayerAnimation(GetComponent<Animator>());
+        
         SetActiveInteractionTriggers(false);
     }
 

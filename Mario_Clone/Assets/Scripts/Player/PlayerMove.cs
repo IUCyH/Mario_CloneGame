@@ -9,8 +9,8 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField]
     PlayerController player;
-    [SerializeField]
-    Animator playerAnimator;
+    PlayerAnimation playerAnimController;
+    
     [SerializeField]
     Transform playerTransform;
     [SerializeField]
@@ -49,11 +49,11 @@ public class PlayerMove : MonoBehaviour
     {
         if (dir != 0)
         {
-            playerAnimator.SetBool("IsMove", true);
+            playerAnimController.Play(PlayerMotion.Move);
         }
         else
         {
-            playerAnimator.SetBool("IsMove", false);
+            playerAnimController.Stop(PlayerMotion.Move);
         }
     }
     
@@ -61,5 +61,6 @@ public class PlayerMove : MonoBehaviour
     {
         nextPlayerPos = Vector3.zero;
         playerTransform = transform;
+        playerAnimController = player.GetPlayerAnimController();
     }
 }
