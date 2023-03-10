@@ -49,11 +49,11 @@ public class PlayerMove : MonoBehaviour
     {
         if (dir != 0)
         {
-            playerAnimController.Play(PlayerMotion.Move);
+            playerAnimController.Play(PlayerMotion.Walk);
         }
         else
         {
-            playerAnimController.Stop(PlayerMotion.Move);
+            playerAnimController.Stop(PlayerMotion.Walk);
         }
     }
     

@@ -22,7 +22,7 @@ public class MonsterManager : SingletonMonoBehaviour<MonsterManager>
         return monsterDieDictionary[monsterID];
     }
 
-    public void RemoveMonsterFromList(MonsterAI monster)
+    void RemoveMonsterFromList(MonsterAI monster)
     {
         monsters.Remove(monster);
     }

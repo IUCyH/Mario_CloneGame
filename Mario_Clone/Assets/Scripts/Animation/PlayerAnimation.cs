@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -8,29 +9,42 @@ public enum PlayerMotion
     None = -1,
     Idle,
     Jump,
-    Move
+    Walk,
 }
 
 public class PlayerAnimation : AnimationManagement
 {
     StringBuilder stringBuilder = new StringBuilder();
+    Dictionary<PlayerMotion, int> playerAnims = new Dictionary<PlayerMotion, int>();
 
     public PlayerAnimation(Animator animator)
     {
         base.animator = animator;
+        SetAnimIdsFromAnimStates();
     }
-    
-    public void Play(PlayerMotion motion, bool isBlend = true)
+
+    public void Play(PlayerMotion motion)
     {
-        stringBuilder.Append(motion);
-        base.PlayWithBoolean(stringBuilder.ToString(), isBlend);
-        stringBuilder.Clear();
+        base.PlayWithBoolean(playerAnims[motion]);
     }
 
     public void Stop(PlayerMotion motion)
     {
-        stringBuilder.Append(motion);
-        base.StopWithBoolean(stringBuilder.ToString());
-        stringBuilder.Clear();
+        base.StopWithBoolean(playerAnims[motion]);
+    }
+
+    protected override void SetAnimIdsFromAnimStates()
+    {
+        foreach (PlayerMotion state in Enum.GetValues(typeof(PlayerMotion)))
+        {
+            if(state == PlayerMotion.None) continue;
+
+            stringBuilder.Append(state);
+            
+            var id = Animator.StringToHash(stringBuilder.ToString());
+            playerAnims.Add(state, id);
+            
+            stringBuilder.Clear();
+        }
     }
 }

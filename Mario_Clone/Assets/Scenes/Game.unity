@@ -4988,7 +4988,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1519013949}
-  playerAnimator: {fileID: 1519013950}
   playerTransform: {fileID: 0}
   mario: {fileID: 30010363}
   speed: 5
@@ -6063,7 +6062,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.35, y: 0.15}
+  m_Size: {x: 0.5, y: 0.15}
   m_EdgeRadius: 0
 --- !u!114 &1694604055
 MonoBehaviour:
