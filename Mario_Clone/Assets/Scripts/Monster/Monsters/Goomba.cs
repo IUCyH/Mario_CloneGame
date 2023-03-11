@@ -11,7 +11,7 @@ namespace Monster.Monsters
         [SerializeField]
         float speed;
 
-        protected override void SetID()
+        protected override void SetMonster()
         {
             base.id = 00;
         }

@@ -25,7 +25,7 @@ public abstract class MonsterAI : MonoBehaviour
     int playerLayer;
 
     public abstract void Move();
-    protected abstract void SetID();
+    protected abstract void SetMonster();
     
     protected virtual void AdditionalActionsWhenGotDamage(){}
     protected virtual void OnStart(){}
@@ -96,6 +96,27 @@ public abstract class MonsterAI : MonoBehaviour
         currentState = MonsterState.None;
 
         OnStart();
-        SetID();
+        SetMonster();
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.transform.CompareTag("Player"))
+        {
+            var playerController = col.transform.GetComponent<PlayerController>();
+            TrySetPlayerDie(playerController);
+        }
+    }
+
+    void TrySetPlayerDie(PlayerController playerController)
+    {
+        try
+        {
+            playerController.SetDie();
+        }
+        catch (NullReferenceException e)
+        {
+            Debug.LogError("playerController가 null 입니다 : " + e.Message);
+        }
     }
 }

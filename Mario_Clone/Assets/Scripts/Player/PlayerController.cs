@@ -18,6 +18,12 @@ public class PlayerController : MonoBehaviour
     int jumpCount;
     bool isPressedJumpKey;
 
+    public void SetDie()
+    {
+        Time.timeScale = 0f;
+        Debug.Log("Im die..");
+    }
+    
     public PlayerAnimation GetPlayerAnimController()
     {
         return playerAnimController;
@@ -52,6 +58,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         playerJump.CheckIsCanJumpAndActiveTriggers();
+
+        if (Input.GetKeyDown(KeyCode.P))
+            Time.timeScale = 1f;
     }
 
     void FixedUpdate()
