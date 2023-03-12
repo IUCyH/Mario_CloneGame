@@ -4937,13 +4937,13 @@ MonoBehaviour:
   player: {fileID: 1519013949}
   playerRB: {fileID: 1519013948}
   feetPos: {fileID: 1920303166}
-  groundCheckRadius: 0.3
-  boxCastDistance: 0.1
+  groundCheckRadius: 0.03199
   defaultJumpForce: 100
   jumpIncrement: 0.2
   jumpForce: 500
   jumpForceWhenSteppingMonster: 500
   maxTime: 0.4
+  jumpCount: 0
 --- !u!61 &1519013952
 BoxCollider2D:
   m_ObjectHideFlags: 0

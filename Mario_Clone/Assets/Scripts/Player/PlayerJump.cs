@@ -19,8 +19,6 @@ public class PlayerJump : MonoBehaviour
     [SerializeField]
     float groundCheckRadius;
     [SerializeField]
-    float boxCastDistance;
-    [SerializeField]
     float defaultJumpForce;
     [SerializeField]
     float jumpIncrement;
@@ -38,6 +36,7 @@ public class PlayerJump : MonoBehaviour
     bool isJumping;
 
     const int MaxJumpCount = 1;
+    [SerializeField]
     int jumpCount;
 
     void CalculateJumpForceAndCheckJump()
@@ -53,18 +52,19 @@ public class PlayerJump : MonoBehaviour
         {
             pressJumpKey = false;
         }
-        
-        
-        if (pressJumpKey && timer < maxTime)
-        {
-            timer += Time.deltaTime;
-            jumpForce += jumpIncrement;
-        }
-        else if(!pressJumpKey || timer > maxTime)
+
+        if (timer > maxTime || !pressJumpKey)
         {
             timer = 0f;
             jumpForce = defaultJumpForce;
             canJump = false;
+
+            pressJumpKey = false;
+        }
+        else
+        {
+            timer += Time.deltaTime;
+            jumpForce += jumpIncrement;
         }
     }
 
@@ -77,18 +77,18 @@ public class PlayerJump : MonoBehaviour
         }
         
         var playerOnGround = IsPlayerOnGround();
-
+        if (!playerOnGround) return;
+        
         CalculateJumpForceAndCheckJump();
-
+        
         player.SetActiveInteractionTriggers(!playerOnGround);
         SetJumpAnimation(playerOnGround);
     }
 
     public void Jump()
     {
-        if (canJump && jumpCount < MaxJumpCount)
+        if (canJump)
         {
-            isJumping = true;
             playerRB.velocity = jumpForce * Time.fixedDeltaTime * Vector2.up;
         }
     }
@@ -109,8 +109,6 @@ public class PlayerJump : MonoBehaviour
         if (isGround)
         {
             jumpCount = 0;
-            isJumping = false;
-
             return true;
         }
         
@@ -125,8 +123,7 @@ public class PlayerJump : MonoBehaviour
         }
         else
         {
-            if(isJumping)
-                playerAnimController.Play(PlayerMotion.Jump);
+            playerAnimController.Play(PlayerMotion.Jump);
         }
     }
 
