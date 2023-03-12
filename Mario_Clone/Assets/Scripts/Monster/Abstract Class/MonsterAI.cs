@@ -32,10 +32,10 @@ public abstract class MonsterAI : MonoBehaviour
 
     public void SetDie()
     {
+        currentState = MonsterState.Die;
         monsterSprRenderer.sprite = MonsterManager.Instance.GetMonsterDieSprite(id);
         monsterAnimator.enabled = false;
-        currentState = MonsterState.Die;
-
+        
         AdditionalActionsWhenGotDamage();
     }
     public bool IsCanMove()
@@ -101,6 +101,8 @@ public abstract class MonsterAI : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        if (StateEquals(currentState, MonsterState.Die)) return;
+        
         if (col.transform.CompareTag("Player"))
         {
             var playerController = col.transform.GetComponent<PlayerController>();

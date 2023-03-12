@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        playerJump.Jump();
         playerMove.Move();
+        playerJump.Jump();
     }
 }

@@ -14,16 +14,59 @@ public class PlayerJump : MonoBehaviour
     [SerializeField]
     Rigidbody2D playerRB;
     [SerializeField]
-    Collider2D playerCollider;
+    Transform feetPos;
+
+    [SerializeField]
+    float groundCheckRadius;
     [SerializeField]
     float boxCastDistance;
+    [SerializeField]
+    float defaultJumpForce;
+    [SerializeField]
+    float jumpIncrement;
     [SerializeField]
     float jumpForce;
     [SerializeField]
     float jumpForceWhenSteppingMonster;
+    float timer;
+    [SerializeField]
+    float maxTime;
     
+    bool pressJumpKey;
     bool canJump;
     bool steppingMonsterNow;
+    bool isJumping;
+
+    const int MaxJumpCount = 1;
+    int jumpCount;
+
+    void CalculateJumpForceAndCheckJump()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow) && jumpCount < MaxJumpCount)
+        {
+            pressJumpKey = true;
+            canJump = true;
+
+            jumpCount++;
+        }
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            pressJumpKey = false;
+        }
+        
+        
+        if (pressJumpKey && timer < maxTime)
+        {
+            timer += Time.deltaTime;
+            jumpForce += jumpIncrement;
+        }
+        else if(!pressJumpKey || timer > maxTime)
+        {
+            timer = 0f;
+            jumpForce = defaultJumpForce;
+            canJump = false;
+        }
+    }
 
     public void CheckIsCanJumpAndActiveTriggers()
     {
@@ -33,49 +76,44 @@ public class PlayerJump : MonoBehaviour
             return;
         }
         
-        var jumpKeyDown = Input.GetKeyDown(KeyCode.UpArrow);
         var playerOnGround = IsPlayerOnGround();
 
-        if (jumpKeyDown && playerOnGround)
-        {
-            canJump = true;
-        }
-        
+        CalculateJumpForceAndCheckJump();
+
         player.SetActiveInteractionTriggers(!playerOnGround);
         SetJumpAnimation(playerOnGround);
     }
 
     public void Jump()
     {
-        if (canJump)
+        if (canJump && jumpCount < MaxJumpCount)
         {
-            var force = jumpForce * Time.fixedDeltaTime * Vector2.up;
-
-            canJump = false;
-            Jump(force, ForceMode2D.Impulse);
+            isJumping = true;
+            playerRB.velocity = jumpForce * Time.fixedDeltaTime * Vector2.up;
         }
     }
 
     public void JumpWhenSteppingMonster()
     {
         var force = jumpForceWhenSteppingMonster * Time.fixedDeltaTime * Vector2.up;
-
-        ResetAddForce();
         
         steppingMonsterNow = true;
         Jump(force, ForceMode2D.Impulse);
         steppingMonsterNow = false;
     }
-    
+
     bool IsPlayerOnGround()
     {
-        var raycast = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0f, Vector2.down, boxCastDistance, groundLayer);
+        bool isGround = Physics2D.OverlapCircle(feetPos.position, groundCheckRadius, groundLayer);
 
-        if (!ReferenceEquals(raycast.collider, null))
+        if (isGround)
         {
+            jumpCount = 0;
+            isJumping = false;
+
             return true;
         }
-
+        
         return false;
     }
 
@@ -87,7 +125,8 @@ public class PlayerJump : MonoBehaviour
         }
         else
         {
-            playerAnimController.Play(PlayerMotion.Jump);
+            if(isJumping)
+                playerAnimController.Play(PlayerMotion.Jump);
         }
     }
 
@@ -96,14 +135,10 @@ public class PlayerJump : MonoBehaviour
         playerRB.AddForce(force, mode);
     }
 
-    void ResetAddForce()
-    {
-        playerRB.velocity = Vector3.zero;
-    }
-
     void Start()
     {
         groundLayer = 1 << LayerMask.NameToLayer("Ground");
         playerAnimController = player.GetPlayerAnimController();
+        defaultJumpForce = jumpForce;
     }
 }

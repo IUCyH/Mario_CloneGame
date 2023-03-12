@@ -29,7 +29,7 @@ namespace Monster.Monsters
 
         void StopPhysics()
         {
-            monsterRB.bodyType = RigidbodyType2D.Kinematic;   
+            monsterRB.bodyType = RigidbodyType2D.Kinematic;  
             monsterColl.enabled = false;
         }
 
