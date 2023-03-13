@@ -21,7 +21,7 @@ public class PlayerJump : MonoBehaviour
     [SerializeField]
     float defaultJumpForce;
     [SerializeField]
-    float jumpIncrement;
+    float jumpForceIncrement;
     [SerializeField]
     float jumpForce;
     [SerializeField]
@@ -30,7 +30,9 @@ public class PlayerJump : MonoBehaviour
     [SerializeField]
     float maxTime;
     
+    [SerializeField]
     bool pressJumpKey;
+    [SerializeField]
     bool canJump;
     bool steppingMonsterNow;
     bool isJumping;
@@ -39,35 +41,6 @@ public class PlayerJump : MonoBehaviour
     [SerializeField]
     int jumpCount;
 
-    void CalculateJumpForceAndCheckJump()
-    {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && jumpCount < MaxJumpCount)
-        {
-            pressJumpKey = true;
-            canJump = true;
-
-            jumpCount++;
-        }
-        if (Input.GetKeyUp(KeyCode.UpArrow))
-        {
-            pressJumpKey = false;
-        }
-
-        if (timer > maxTime || !pressJumpKey)
-        {
-            timer = 0f;
-            jumpForce = defaultJumpForce;
-            canJump = false;
-
-            pressJumpKey = false;
-        }
-        else
-        {
-            timer += Time.deltaTime;
-            jumpForce += jumpIncrement;
-        }
-    }
-
     public void CheckIsCanJumpAndActiveTriggers()
     {
         if (steppingMonsterNow)
@@ -75,21 +48,52 @@ public class PlayerJump : MonoBehaviour
             canJump = false;
             return;
         }
-        
-        var playerOnGround = IsPlayerOnGround();
-        if (!playerOnGround) return;
-        
-        CalculateJumpForceAndCheckJump();
-        
-        player.SetActiveInteractionTriggers(!playerOnGround);
-        SetJumpAnimation(playerOnGround);
+
+        var playerOnGroundNow = IsPlayerOnGround();
+
+        canJump = playerOnGroundNow;
+        CalculateJumpForceAndJump();
+
+        SetJumpAnimation(playerOnGroundNow);
+        player.SetActiveInteractionTriggers(!playerOnGroundNow);
+    }
+    
+    void CalculateJumpForceAndJump()
+    {
+        CheckIfJumpKeyPressed();
+
+        if (pressJumpKey && timer <= maxTime)
+        {
+            Jump();
+            
+            timer += Time.deltaTime;
+            jumpForce += jumpForceIncrement;
+        }
+        else
+        {
+            timer = 0f;
+            jumpForce = defaultJumpForce;
+        }
     }
 
-    public void Jump()
+    void Jump()
     {
         if (canJump)
         {
             playerRB.velocity = jumpForce * Time.fixedDeltaTime * Vector2.up;
+        }
+    }
+
+    void CheckIfJumpKeyPressed()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            pressJumpKey = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            pressJumpKey = false;
         }
     }
 
@@ -98,7 +102,7 @@ public class PlayerJump : MonoBehaviour
         var force = jumpForceWhenSteppingMonster * Time.fixedDeltaTime * Vector2.up;
         
         steppingMonsterNow = true;
-        Jump(force, ForceMode2D.Impulse);
+        playerRB.AddForce(force, ForceMode2D.Impulse);
         steppingMonsterNow = false;
     }
 
@@ -106,13 +110,7 @@ public class PlayerJump : MonoBehaviour
     {
         bool isGround = Physics2D.OverlapCircle(feetPos.position, groundCheckRadius, groundLayer);
 
-        if (isGround)
-        {
-            jumpCount = 0;
-            return true;
-        }
-        
-        return false;
+        return isGround;
     }
 
     void SetJumpAnimation(bool playerOnGround)
@@ -125,11 +123,6 @@ public class PlayerJump : MonoBehaviour
         {
             playerAnimController.Play(PlayerMotion.Jump);
         }
-    }
-
-    void Jump(Vector2 force, ForceMode2D mode = ForceMode2D.Force)
-    {
-        playerRB.AddForce(force, mode);
     }
 
     void Start()

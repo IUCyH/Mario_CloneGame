@@ -4881,7 +4881,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.01
-  m_GravityScale: 6.5
+  m_GravityScale: 7
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -4937,12 +4937,13 @@ MonoBehaviour:
   player: {fileID: 1519013949}
   playerRB: {fileID: 1519013948}
   feetPos: {fileID: 1920303166}
-  groundCheckRadius: 0.03199
+  groundCheckRadius: 0.3
   defaultJumpForce: 100
-  jumpIncrement: 0.2
-  jumpForce: 500
+  jumpForceIncrement: 5
+  jumpForce: 700
   jumpForceWhenSteppingMonster: 500
   maxTime: 0.4
+  canJump: 0
   jumpCount: 0
 --- !u!61 &1519013952
 BoxCollider2D:
