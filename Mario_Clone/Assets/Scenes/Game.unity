@@ -1324,8 +1324,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41500c498e0e9744b88105e294fddaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1519013946}
+  cam: {fileID: 519420032}
+  player: {fileID: 1519013947}
   mapEndPosition: {x: 205, y: 0, z: -10}
+  startMovingValue: 1.8
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -4937,14 +4939,15 @@ MonoBehaviour:
   player: {fileID: 1519013949}
   playerRB: {fileID: 1519013948}
   feetPos: {fileID: 1920303166}
-  groundCheckRadius: 0.3
+  groundCheckRadius: 0.32
   defaultJumpForce: 100
   jumpForceIncrement: 5
-  jumpForce: 700
+  jumpForce: 500
   jumpForceWhenSteppingMonster: 500
-  maxTime: 0.4
+  maxTime: 0.3
+  pressJumpKey: 0
   canJump: 0
-  jumpCount: 0
+  isJumping: 0
 --- !u!61 &1519013952
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -3,28 +3,34 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField]
-    GameObject player;
+    Transform cam;
+    [SerializeField]
+    Transform player;
+    
     Vector3 nextPosition;
+    float playerPositionX;
+    
     [SerializeField]
     Vector3 mapEndPosition;
 
+    [SerializeField]
+    float startMovingValue;
+
     void Move()
     {
-        if (IsCanMove())
-        {
-            nextPosition.x = player.transform.position.x;
-            transform.position = nextPosition;
-        }
+        if (!IsCanMove()) return;
+        
+        nextPosition.x = playerPositionX;
+        cam.position = nextPosition;
     }
 
     bool IsCanMove()
     {
-        if (player.transform.position.x < transform.position.x || transform.position.x > mapEndPosition.x)
-        {
-            return false;
-        }
-
-        return true;
+        playerPositionX = player.position.x + startMovingValue;
+        var camPos = cam.position;
+        bool isCanMove = !(playerPositionX < camPos.x || camPos.x > mapEndPosition.x);
+    
+        return isCanMove;
     }
 
     // Start is called before the first frame update

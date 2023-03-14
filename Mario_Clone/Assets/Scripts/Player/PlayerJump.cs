@@ -35,11 +35,8 @@ public class PlayerJump : MonoBehaviour
     [SerializeField]
     bool canJump;
     bool steppingMonsterNow;
-    bool isJumping;
-
-    const int MaxJumpCount = 1;
     [SerializeField]
-    int jumpCount;
+    bool isJumping;
 
     public void CheckIsCanJumpAndActiveTriggers()
     {
@@ -52,6 +49,7 @@ public class PlayerJump : MonoBehaviour
         var playerOnGroundNow = IsPlayerOnGround();
 
         canJump = playerOnGroundNow;
+
         CalculateJumpForceAndJump();
 
         SetJumpAnimation(playerOnGroundNow);
@@ -62,7 +60,7 @@ public class PlayerJump : MonoBehaviour
     {
         CheckIfJumpKeyPressed();
 
-        if (pressJumpKey && timer <= maxTime)
+        if (timer <= maxTime && pressJumpKey)
         {
             Jump();
             
@@ -71,6 +69,8 @@ public class PlayerJump : MonoBehaviour
         }
         else
         {
+            pressJumpKey = false;
+
             timer = 0f;
             jumpForce = defaultJumpForce;
         }
@@ -78,17 +78,15 @@ public class PlayerJump : MonoBehaviour
 
     void Jump()
     {
-        if (canJump)
-        {
-            playerRB.velocity = jumpForce * Time.fixedDeltaTime * Vector2.up;
-        }
+        playerRB.velocity = jumpForce * Time.fixedDeltaTime * Vector2.up;
     }
 
     void CheckIfJumpKeyPressed()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) && canJump)
         {
             pressJumpKey = true;
+            isJumping = true;
         }
 
         if (Input.GetKeyUp(KeyCode.UpArrow))
@@ -121,7 +119,10 @@ public class PlayerJump : MonoBehaviour
         }
         else
         {
-            playerAnimController.Play(PlayerMotion.Jump);
+            if (isJumping)
+            {
+                playerAnimController.Play(PlayerMotion.Jump);
+            }
         }
     }
 
