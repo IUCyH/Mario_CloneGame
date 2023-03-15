@@ -51,7 +51,7 @@ public class PlayerJump : MonoBehaviour
         canJump = playerOnGroundNow;
 
         CalculateJumpForceAndJump();
-
+        
         SetJumpAnimation(playerOnGroundNow);
         player.SetActiveInteractionTriggers(!playerOnGroundNow);
     }
@@ -59,6 +59,7 @@ public class PlayerJump : MonoBehaviour
     void CalculateJumpForceAndJump()
     {
         CheckIfJumpKeyPressed();
+        CheckIsJumping();
 
         if (timer <= maxTime && pressJumpKey)
         {
@@ -92,6 +93,18 @@ public class PlayerJump : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.UpArrow))
         {
             pressJumpKey = false;
+        }
+    }
+
+    void CheckIsJumping()
+    {
+        if (canJump && isJumping)
+        {
+            isJumping = false;
+        }
+        else if (!canJump && pressJumpKey)
+        {
+            isJumping = true;
         }
     }
 
