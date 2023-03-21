@@ -15,9 +15,14 @@ public class PlayerMove : MonoBehaviour
     Transform playerTransform;
     [SerializeField]
     Transform mario;
-    
+
     [SerializeField]
+    float runSpeed;
+    [SerializeField]
+    float walkSpeed;
     float speed;
+
+    bool isRunning;
     
     public void Move()
     {
@@ -31,6 +36,28 @@ public class PlayerMove : MonoBehaviour
 
         SetPlayerRotation(dir);
         SetMoveAnimation(dir);
+    }
+
+    public void SetMoveSpeed()
+    {
+        CheckIsRunKeyPressed();
+
+        speed = isRunning ? runSpeed : walkSpeed;
+    }
+
+    void CheckIsRunKeyPressed()
+    {
+        bool runKeyPressed = Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift);
+        bool notRunKeyPressed = Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift);
+
+        if (runKeyPressed)
+        {
+            isRunning = true;
+        }
+        if (notRunKeyPressed)
+        {
+            isRunning = false;
+        }
     }
     
     void SetPlayerRotation(float dir)
@@ -47,6 +74,8 @@ public class PlayerMove : MonoBehaviour
     
     void SetMoveAnimation(float dir)
     {
+        var animSpeed = speed - walkSpeed; //현재 속도에서 기본속도를 뺌
+        
         if (dir != 0)
         {
             playerAnimController.Play(PlayerMotion.Walk);
@@ -55,6 +84,8 @@ public class PlayerMove : MonoBehaviour
         {
             playerAnimController.Stop(PlayerMotion.Walk);
         }
+        
+        playerAnimController.SetAnimationSpeed(PlayerAnimSpeedParams.MoveSpeed, animSpeed);
     }
     
     void Start()

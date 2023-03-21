@@ -5003,7 +5003,8 @@ MonoBehaviour:
   player: {fileID: 1519013949}
   playerTransform: {fileID: 0}
   mario: {fileID: 30010363}
-  speed: 5
+  runSpeed: 7.5
+  walkSpeed: 5
 --- !u!1 &1522857704
 GameObject:
   m_ObjectHideFlags: 0

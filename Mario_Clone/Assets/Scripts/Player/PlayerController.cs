@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         playerJump.CheckIsCanJumpAndActiveTriggers();
+        playerMove.SetMoveSpeed();
 
         if (Input.GetKeyDown(KeyCode.P))
             Time.timeScale = 1f;

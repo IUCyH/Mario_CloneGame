@@ -12,10 +12,16 @@ public enum PlayerMotion
     Walk,
 }
 
+public enum PlayerAnimSpeedParams
+{
+    MoveSpeed
+}
+
 public class PlayerAnimation : AnimationManagement
 {
     StringBuilder stringBuilder = new StringBuilder();
     Dictionary<PlayerMotion, int> playerAnims = new Dictionary<PlayerMotion, int>();
+    Dictionary<PlayerAnimSpeedParams, int> playerAnimSpeedParams = new Dictionary<PlayerAnimSpeedParams, int>();
 
     public PlayerAnimation(Animator animator)
     {
@@ -32,6 +38,11 @@ public class PlayerAnimation : AnimationManagement
     {
         base.StopWithBoolean(playerAnims[motion]);
     }
+    
+    public void SetAnimationSpeed(PlayerAnimSpeedParams animSpeedParam, float speed = 1f)
+    {
+        base.SetAnimationSpeed(playerAnimSpeedParams[animSpeedParam], speed);
+    }
 
     protected override void SetAnimIdsFromAnimStates()
     {
@@ -43,6 +54,16 @@ public class PlayerAnimation : AnimationManagement
             
             var id = Animator.StringToHash(stringBuilder.ToString());
             playerAnims.Add(state, id);
+            
+            stringBuilder.Clear();
+        }
+
+        foreach (PlayerAnimSpeedParams animSpeed in Enum.GetValues(typeof(PlayerAnimSpeedParams)))
+        {
+            stringBuilder.Append(animSpeed);
+            
+            var id = Animator.StringToHash(stringBuilder.ToString());
+            playerAnimSpeedParams.Add(animSpeed, id);
             
             stringBuilder.Clear();
         }
