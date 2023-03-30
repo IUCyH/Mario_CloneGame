@@ -38,7 +38,7 @@ public class PlayerJump : MonoBehaviour
     [SerializeField]
     bool isJumping;
 
-    public void CheckIsCanJumpAndActiveTriggers()
+    public void Jump()
     {
         if (steppingMonsterNow)
         {
@@ -53,7 +53,6 @@ public class PlayerJump : MonoBehaviour
         CalculateJumpForceAndJump();
         
         SetJumpAnimation(playerOnGroundNow);
-        player.SetActiveInteractionTriggers(!playerOnGroundNow);
     }
     
     void CalculateJumpForceAndJump()
@@ -63,7 +62,7 @@ public class PlayerJump : MonoBehaviour
 
         if (timer <= maxTime && pressJumpKey)
         {
-            Jump();
+            playerRB.velocity = jumpForce * Time.fixedDeltaTime * Vector2.up;
             
             timer += Time.deltaTime;
             jumpForce += jumpForceIncrement;
@@ -75,11 +74,6 @@ public class PlayerJump : MonoBehaviour
             timer = 0f;
             jumpForce = defaultJumpForce;
         }
-    }
-
-    void Jump()
-    {
-        playerRB.velocity = jumpForce * Time.fixedDeltaTime * Vector2.up;
     }
 
     void CheckIfJumpKeyPressed()
@@ -111,7 +105,8 @@ public class PlayerJump : MonoBehaviour
     public void JumpWhenSteppingMonster()
     {
         var force = jumpForceWhenSteppingMonster * Time.fixedDeltaTime * Vector2.up;
-        
+
+        playerRB.velocity = Vector3.zero;
         steppingMonsterNow = true;
         playerRB.AddForce(force, ForceMode2D.Impulse);
         steppingMonsterNow = false;

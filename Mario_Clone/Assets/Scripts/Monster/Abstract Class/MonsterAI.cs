@@ -99,7 +99,7 @@ public abstract class MonsterAI : MonoBehaviour
         SetMonster();
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    /*void OnCollisionEnter2D(Collision2D col)
     {
         if (StateEquals(currentState, MonsterState.Die)) return;
         
@@ -108,7 +108,7 @@ public abstract class MonsterAI : MonoBehaviour
             var playerController = col.transform.GetComponent<PlayerController>();
             TrySetPlayerDie(playerController);
         }
-    }
+    }*/
 
     void TrySetPlayerDie(PlayerController playerController)
     {

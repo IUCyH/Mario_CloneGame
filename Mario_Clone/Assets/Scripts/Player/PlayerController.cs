@@ -11,9 +11,9 @@ public class PlayerController : MonoBehaviour
     PlayerJump playerJump;
 
     [SerializeField]
-    InteractionTrigger[] interactionTriggers;
-    [SerializeField]
     MovementLimit playerMovementLimit;
+    [SerializeField]
+    Transform feetPos;
 
     int jumpCount;
     bool isPressedJumpKey;
@@ -31,33 +31,56 @@ public class PlayerController : MonoBehaviour
     
     public void JumpWhenSteppingMonster()
     {
-        playerJump.JumpWhenSteppingMonster();
+        
     }
     
-    public void SetActiveInteractionTriggers(bool value)
-    {
-        foreach (var trigger in interactionTriggers)
-        {
-            trigger.SetActive(value);
-        }
-    }
-
     public bool IsPlayerCanMove(float dir)
     {
         return !playerMovementLimit.IsPlayerCannotMove(dir);
     }
-    
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        var contacts = col.contacts;
+        int contactsCount = contacts.Length;
+        
+        for (int i = 0; i < contactsCount; i++)
+        {
+            var contactObj = contacts[i];
+            var contactObjCollider = contactObj.collider;
+            
+            if (contactObjCollider.CompareTag("Monster"))
+            {
+                ActionWhenMonsterCollided(contactObjCollider.transform);    
+            }
+        }
+    }
+
+    void ActionWhenMonsterCollided(Transform monsterTransform)
+    {
+        if (monsterTransform.position.y <= feetPos.position.y)
+        {
+            var monster = monsterTransform.GetComponent<MonsterAI>();
+            if (monster != null)
+            {
+                monster.SetDie();
+                playerJump.JumpWhenSteppingMonster();
+            }
+        }
+        else
+        {
+            SetDie();
+        }
+    }
+
     void Start()
     {
-        interactionTriggers = GetComponentsInChildren<InteractionTrigger>();
         playerAnimController = new PlayerAnimation(GetComponent<Animator>());
-        
-        SetActiveInteractionTriggers(false);
     }
 
     void Update()
     {
-        playerJump.CheckIsCanJumpAndActiveTriggers();
+        playerJump.Jump();
         playerMove.SetMoveSpeed();
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -67,6 +90,5 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         playerMove.Move();
-        //playerJump.Jump();
     }
 }
