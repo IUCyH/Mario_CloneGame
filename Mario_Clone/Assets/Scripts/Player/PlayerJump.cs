@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
-    int groundLayer;
-
     [SerializeField]
     PlayerController player;
     PlayerAnimation playerAnimController;
@@ -37,6 +35,7 @@ public class PlayerJump : MonoBehaviour
     bool steppingMonsterNow;
     [SerializeField]
     bool isJumping;
+    int groundLayer;
 
     public void Jump()
     {

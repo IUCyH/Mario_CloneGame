@@ -15,6 +15,11 @@ namespace Monster.Monsters
         {
             base.id = 00;
         }
+        
+        protected override void ChangeToOppositeDir()
+        {
+            speed *= -1;
+        }
 
         public override void Move()
         {

@@ -26,6 +26,7 @@ public abstract class MonsterAI : MonoBehaviour
 
     public abstract void Move();
     protected abstract void SetMonster();
+    protected abstract void ChangeToOppositeDir();
     
     protected virtual void AdditionalActionsWhenGotDamage(){}
     protected virtual void OnStart(){}
@@ -99,26 +100,11 @@ public abstract class MonsterAI : MonoBehaviour
         SetMonster();
     }
 
-    /*void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if (StateEquals(currentState, MonsterState.Die)) return;
-        
-        if (col.transform.CompareTag("Player"))
-        {
-            var playerController = col.transform.GetComponent<PlayerController>();
-            TrySetPlayerDie(playerController);
-        }
-    }*/
+        var contactTransform = col.transform;
+        if (contactTransform.CompareTag("Player") || contactTransform.CompareTag("Map")) return;
 
-    void TrySetPlayerDie(PlayerController playerController)
-    {
-        try
-        {
-            playerController.SetDie();
-        }
-        catch (NullReferenceException e)
-        {
-            Debug.LogError("playerController가 null 입니다 : " + e.Message);
-        }
+        ChangeToOppositeDir();
     }
 }

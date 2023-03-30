@@ -19,6 +19,11 @@ namespace Monster.Monsters
             koopaRolling.SetActive(false);
         }
 
+        protected override void ChangeToOppositeDir()
+        {
+            speed *= -1;
+        }
+
         protected override void AdditionalActionsWhenGotDamage()
         {
             monsterCollider.enabled = false;
@@ -27,7 +32,7 @@ namespace Monster.Monsters
 
         public override void Move()
         {
-            monster.position += speed * Time.deltaTime * Vector3.left;
+            base.monster.position += speed * Time.deltaTime * Vector3.left;
         }
         
         public void MoveFaster()

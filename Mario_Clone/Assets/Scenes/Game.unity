@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 2474815}
   m_Layer: 0
   m_Name: Cloud1 (4)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -193,7 +193,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 389a36137030e934588f6638c459624e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 159090574}
   m_Layer: 0
   m_Name: FlagPole
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -548,7 +548,7 @@ GameObject:
   - component: {fileID: 225053264}
   m_Layer: 0
   m_Name: Cloud3
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -606,7 +606,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 9ddc98ae0cb85dd4d917151bbf389164, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -796,7 +796,7 @@ GameObject:
   - component: {fileID: 267623162}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -865,7 +865,7 @@ GameObject:
   - component: {fileID: 307367525}
   m_Layer: 0
   m_Name: Cloud2 (1)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -923,7 +923,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: e1950d88049400145a0bc5c6e5f78e39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -947,7 +947,7 @@ GameObject:
   - component: {fileID: 326358800}
   m_Layer: 0
   m_Name: Bush2 (1)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1005,7 +1005,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 4ef1ff1869cdb5041a89571184580a4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1251,9 +1251,9 @@ GameObject:
   m_Component:
   - component: {fileID: 455251342}
   - component: {fileID: 455251343}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid_MysteryBox
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1400,7 +1400,7 @@ GameObject:
   - component: {fileID: 579115303}
   m_Layer: 0
   m_Name: Castle
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1482,7 +1482,7 @@ GameObject:
   - component: {fileID: 579458539}
   m_Layer: 0
   m_Name: Cloud2 (3)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1540,7 +1540,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: e1950d88049400145a0bc5c6e5f78e39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1621,7 +1621,7 @@ GameObject:
   - component: {fileID: 634264191}
   m_Layer: 0
   m_Name: Cloud3 (3)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1679,7 +1679,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 9ddc98ae0cb85dd4d917151bbf389164, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1870,7 +1870,7 @@ GameObject:
   - component: {fileID: 678156154}
   m_Layer: 0
   m_Name: Flag
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1951,7 +1951,7 @@ GameObject:
   - component: {fileID: 686973824}
   m_Layer: 0
   m_Name: Finish Flag
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2318,7 +2318,7 @@ GameObject:
   - component: {fileID: 820332389}
   m_Layer: 0
   m_Name: Cloud3 (1)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2376,7 +2376,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 9ddc98ae0cb85dd4d917151bbf389164, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2398,7 +2398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 831031255}
   - component: {fileID: 831031256}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PipeTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2413,7 +2413,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831031254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.182665, y: 1.478, z: 2.607842}
+  m_LocalPosition: {x: 0, y: 1.478, z: 2.607842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1912458192}
@@ -2499,7 +2499,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855730144}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.92, y: 0, z: 31.185383}
+  m_LocalPosition: {x: 44.28, y: 0, z: 31.185383}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1602357865}
@@ -2649,7 +2649,7 @@ GameObject:
   - component: {fileID: 887840338}
   m_Layer: 0
   m_Name: Cloud1 (7)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2707,7 +2707,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 389a36137030e934588f6638c459624e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2731,9 +2731,9 @@ GameObject:
   - component: {fileID: 968173808}
   - component: {fileID: 968173807}
   - component: {fileID: 968173809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3039,7 +3039,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1011135617}
-  m_Layer: 0
+  - component: {fileID: 1011135618}
+  m_Layer: 6
   m_Name: Pipe_VeryTall_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3054,7 +3055,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011135616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.47, y: -2.17, z: 0}
+  m_LocalPosition: {x: 45.76, y: -2.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1047855398}
@@ -3062,6 +3063,32 @@ Transform:
   m_Father: {fileID: 1902504931}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1011135618
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011135616}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.007429123, y: 1.2107116}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.0250206, y: 3.4214232}
+  m_EdgeRadius: 0
 --- !u!1 &1047650953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3074,7 +3101,7 @@ GameObject:
   - component: {fileID: 1047650955}
   m_Layer: 0
   m_Name: Hill2 (2)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3132,7 +3159,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 5f5689fa660364249b04c4417cdd2d14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3154,7 +3181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1047855398}
   - component: {fileID: 1047855399}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PipeTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3169,7 +3196,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047855397}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.182665, y: 2.39, z: 2.607842}
+  m_LocalPosition: {x: 0, y: 2.39, z: 2.607842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1011135617}
@@ -3407,7 +3434,7 @@ GameObject:
   - component: {fileID: 1079611770}
   m_Layer: 0
   m_Name: Cloud1 (1)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3465,7 +3492,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 389a36137030e934588f6638c459624e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3489,7 +3516,7 @@ GameObject:
   - component: {fileID: 1227718298}
   m_Layer: 0
   m_Name: Bush1 (2)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3547,7 +3574,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: f4d64c4809fefbe488ff85459361ee1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3571,7 +3598,7 @@ GameObject:
   - component: {fileID: 1252181443}
   m_Layer: 0
   m_Name: Bush3
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3629,7 +3656,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 19e7e3e5755ff1948ab49f4c2ec4e8f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3820,7 +3847,7 @@ GameObject:
   - component: {fileID: 1329644676}
   m_Layer: 0
   m_Name: Cloud1 (5)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3878,7 +3905,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 389a36137030e934588f6638c459624e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4069,7 +4096,7 @@ GameObject:
   - component: {fileID: 1333841985}
   m_Layer: 0
   m_Name: Bush1 (3)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4127,7 +4154,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: f4d64c4809fefbe488ff85459361ee1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4151,7 +4178,7 @@ GameObject:
   - component: {fileID: 1342499568}
   m_Layer: 0
   m_Name: Cloud1 (2)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4209,7 +4236,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 389a36137030e934588f6638c459624e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4233,7 +4260,7 @@ GameObject:
   - component: {fileID: 1372314229}
   m_Layer: 0
   m_Name: Cloud2
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4291,7 +4318,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: e1950d88049400145a0bc5c6e5f78e39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4345,7 +4372,7 @@ GameObject:
   - component: {fileID: 1394888061}
   m_Layer: 0
   m_Name: Hill1 (2)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4403,7 +4430,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 8d96a4d553de59348b02c5376ebad331, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4594,7 +4621,7 @@ GameObject:
   - component: {fileID: 1476214998}
   m_Layer: 0
   m_Name: Bush1
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4652,7 +4679,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: f4d64c4809fefbe488ff85459361ee1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4676,7 +4703,7 @@ GameObject:
   - component: {fileID: 1503269985}
   m_Layer: 0
   m_Name: Bush1 (5)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4734,7 +4761,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: f4d64c4809fefbe488ff85459361ee1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4758,7 +4785,7 @@ GameObject:
   - component: {fileID: 1513756647}
   m_Layer: 0
   m_Name: Hill2 (3)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4816,7 +4843,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 5f5689fa660364249b04c4417cdd2d14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4938,7 +4965,7 @@ MonoBehaviour:
   player: {fileID: 1519013949}
   playerRB: {fileID: 1519013948}
   feetPos: {fileID: 1920303166}
-  groundCheckRadius: 0.32
+  groundCheckRadius: 0.31
   defaultJumpForce: 100
   jumpForceIncrement: 5
   jumpForce: 500
@@ -5016,7 +5043,7 @@ GameObject:
   - component: {fileID: 1522857705}
   m_Layer: 6
   m_Name: Grid_TileMap
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5394,7 +5421,7 @@ GameObject:
   - component: {fileID: 1566734059}
   m_Layer: 0
   m_Name: Hill2 (4)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5452,7 +5479,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 5f5689fa660364249b04c4417cdd2d14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5476,7 +5503,7 @@ GameObject:
   - component: {fileID: 1570186462}
   m_Layer: 0
   m_Name: Hill1 (3)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5534,7 +5561,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 8d96a4d553de59348b02c5376ebad331, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5558,7 +5585,7 @@ GameObject:
   - component: {fileID: 1581156899}
   m_Layer: 0
   m_Name: Hill1 (4)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5616,7 +5643,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 8d96a4d553de59348b02c5376ebad331, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5702,7 +5729,7 @@ GameObject:
   - component: {fileID: 1628883001}
   m_Layer: 0
   m_Name: Hill2 (1)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5760,7 +5787,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 5f5689fa660364249b04c4417cdd2d14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5784,7 +5811,7 @@ GameObject:
   - component: {fileID: 1634261253}
   m_Layer: 0
   m_Name: Hill1
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5842,7 +5869,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 8d96a4d553de59348b02c5376ebad331, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5864,7 +5891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1657675512}
   - component: {fileID: 1657675513}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PipeBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5879,7 +5906,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657675511}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.182665, y: 0.508, z: 2.607842}
+  m_LocalPosition: {x: 0, y: 0.508, z: 2.607842}
   m_LocalScale: {x: 1, y: 2.8, z: 1}
   m_Children: []
   m_Father: {fileID: 1011135617}
@@ -5948,7 +5975,7 @@ GameObject:
   - component: {fileID: 1680274566}
   m_Layer: 0
   m_Name: Cloud1 (6)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6006,7 +6033,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 389a36137030e934588f6638c459624e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6047,7 +6074,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769033418}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.07, y: 0, z: 31.185383}
+  m_LocalPosition: {x: 45.32, y: 0, z: 31.185383}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1602357865}
@@ -6197,7 +6224,7 @@ GameObject:
   - component: {fileID: 1772082541}
   m_Layer: 0
   m_Name: Hill2
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6255,7 +6282,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 5f5689fa660364249b04c4417cdd2d14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6279,7 +6306,7 @@ GameObject:
   - component: {fileID: 1805110500}
   m_Layer: 0
   m_Name: Cloud1
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6337,7 +6364,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 389a36137030e934588f6638c459624e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6361,7 +6388,7 @@ GameObject:
   - component: {fileID: 1836966365}
   m_Layer: 0
   m_Name: Bush2
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6419,7 +6446,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 4ef1ff1869cdb5041a89571184580a4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6443,7 +6470,7 @@ GameObject:
   - component: {fileID: 1850301690}
   m_Layer: 0
   m_Name: Hill1 (1)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6501,7 +6528,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 8d96a4d553de59348b02c5376ebad331, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6525,7 +6552,7 @@ GameObject:
   - component: {fileID: 1855087942}
   m_Layer: 0
   m_Name: Bush3 (1)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6583,7 +6610,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 19e7e3e5755ff1948ab49f4c2ec4e8f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6774,7 +6801,7 @@ GameObject:
   - component: {fileID: 1880705650}
   m_Layer: 0
   m_Name: Bush1 (1)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6832,7 +6859,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: f4d64c4809fefbe488ff85459361ee1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6947,7 +6974,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1896595438}
   - component: {fileID: 1896595439}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PipeBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6962,7 +6989,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896595437}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.182665, y: 0.508, z: 2.607842}
+  m_LocalPosition: {x: 0, y: 0.508, z: 2.607842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1912458192}
@@ -7031,7 +7058,7 @@ GameObject:
   - component: {fileID: 1897048473}
   m_Layer: 0
   m_Name: Bush3 (2)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7089,7 +7116,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 19e7e3e5755ff1948ab49f4c2ec4e8f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7112,7 +7139,7 @@ GameObject:
   - component: {fileID: 1902504931}
   m_Layer: 0
   m_Name: Map
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7151,7 +7178,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1912458192}
-  m_Layer: 0
+  - component: {fileID: 1912458193}
+  m_Layer: 6
   m_Name: Pipe_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7166,7 +7194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912458191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 174.04, y: -2.45, z: 0}
+  m_LocalPosition: {x: 178.18, y: -2.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 831031255}
@@ -7174,6 +7202,32 @@ Transform:
   m_Father: {fileID: 1902504931}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1912458193
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912458191}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.0899177}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.0117378, y: 1.8185883}
+  m_EdgeRadius: 0
 --- !u!1 &1913927969
 GameObject:
   m_ObjectHideFlags: 0
@@ -7186,7 +7240,7 @@ GameObject:
   - component: {fileID: 1913927971}
   m_Layer: 0
   m_Name: Bush2 (2)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7244,7 +7298,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 4ef1ff1869cdb5041a89571184580a4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7298,7 +7352,7 @@ GameObject:
   - component: {fileID: 1925808987}
   m_Layer: 0
   m_Name: Cloud2 (2)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7356,7 +7410,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: e1950d88049400145a0bc5c6e5f78e39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7547,7 +7601,7 @@ GameObject:
   - component: {fileID: 1964592187}
   m_Layer: 0
   m_Name: Bush1 (4)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7605,7 +7659,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: f4d64c4809fefbe488ff85459361ee1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7633,7 +7687,7 @@ GameObject:
   - component: {fileID: 2010184537}
   m_Layer: 6
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -13787,7 +13841,7 @@ GameObject:
   - component: {fileID: 2026593935}
   m_Layer: 0
   m_Name: Cloud1 (3)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -13845,7 +13899,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 389a36137030e934588f6638c459624e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -13869,7 +13923,7 @@ GameObject:
   - component: {fileID: 2064753895}
   m_Layer: 0
   m_Name: Cloud3 (2)
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -13927,7 +13981,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 9ddc98ae0cb85dd4d917151bbf389164, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -14115,13 +14169,40 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1933384343067846459}
-  m_Layer: 0
+  - component: {fileID: 1933384343067846457}
+  m_Layer: 6
   m_Name: Pipe_Tall_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!61 &1933384343067846457
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933384343067846456}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.012137413, y: 0.96497834}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.9953213, y: 2.9299567}
+  m_EdgeRadius: 0
 --- !u!4 &1933384343067846459
 Transform:
   m_ObjectHideFlags: 0
@@ -14130,7 +14211,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933384343067846456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.72, y: -2.17, z: 0}
+  m_LocalPosition: {x: 35.94, y: -2.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1933384343200464755}
@@ -14148,7 +14229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1933384343200464755}
   - component: {fileID: 1933384343200464754}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PipeTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14214,7 +14295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933384343200464752}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.182665, y: 1.901, z: 2.607842}
+  m_LocalPosition: {x: 0, y: 1.901, z: 2.607842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1933384343067846459}
@@ -14230,7 +14311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1933384344704182197}
   - component: {fileID: 1933384344704182196}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PipeBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14296,7 +14377,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933384344704182194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.182665, y: 0.508, z: 2.607842}
+  m_LocalPosition: {x: 0, y: 0.508, z: 2.607842}
   m_LocalScale: {x: 1, y: 1.8, z: 1}
   m_Children: []
   m_Father: {fileID: 1933384343067846459}
@@ -14312,7 +14393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5526545198369584334}
   - component: {fileID: 5526545198369584335}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PipeBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14327,7 +14408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5526545198369584329}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.182665, y: 0.508, z: 2.607842}
+  m_LocalPosition: {x: 0, y: 0.508, z: 2.607842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5526545198928966720}
@@ -14392,7 +14473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5526545198795107339}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.182665, y: 1.478, z: 2.607842}
+  m_LocalPosition: {x: 0, y: 1.478, z: 2.607842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5526545198928966720}
@@ -14459,7 +14540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5526545198795107336}
   - component: {fileID: 5526545198795107337}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PipeTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14474,7 +14555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5526545198928966723}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 158.01, y: -2.45, z: 0}
+  m_LocalPosition: {x: 162.476, y: -2.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5526545198795107336}
@@ -14491,13 +14572,40 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5526545198928966720}
-  m_Layer: 0
+  - component: {fileID: 5526545198928966724}
+  m_Layer: 6
   m_Name: Pipe_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!61 &5526545198928966724
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526545198928966723}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.0899177}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.0117378, y: 1.8185883}
+  m_EdgeRadius: 0
 --- !u!1 &7268299485781498168
 GameObject:
   m_ObjectHideFlags: 0
@@ -14508,7 +14616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7268299485781498175}
   - component: {fileID: 7268299485781498174}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PipeBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14574,7 +14682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7268299485781498168}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.182665, y: 0.508, z: 2.607842}
+  m_LocalPosition: {x: 0, y: 0.508, z: 2.607842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7268299487298296241}
@@ -14588,7 +14696,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7268299487298296242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.35, y: -2.45, z: 0}
+  m_LocalPosition: {x: 27.88, y: -2.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7268299487432278521}
@@ -14605,13 +14713,40 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7268299487298296241}
-  m_Layer: 0
+  - component: {fileID: 7268299487298296243}
+  m_Layer: 6
   m_Name: Pipe_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!61 &7268299487298296243
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268299487298296242}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.0899177}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.0117378, y: 1.8185883}
+  m_EdgeRadius: 0
 --- !u!212 &7268299487432278520
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14671,7 +14806,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7268299487432278522}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.182665, y: 1.478, z: 2.607842}
+  m_LocalPosition: {x: 0, y: 1.478, z: 2.607842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7268299487298296241}
@@ -14687,7 +14822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7268299487432278521}
   - component: {fileID: 7268299487432278520}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PipeTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14753,7 +14888,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8815015085163059042}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.182665, y: 2.39, z: 2.607842}
+  m_LocalPosition: {x: 0, y: 2.39, z: 2.607842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8815015085197697734}
@@ -14769,7 +14904,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8815015085163059041}
   - component: {fileID: 8815015085163059040}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PipeTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14784,7 +14919,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8815015085197697735}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 52, y: -2.17, z: 0}
+  m_LocalPosition: {x: 56.26, y: -2.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8815015085163059041}
@@ -14801,13 +14936,40 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8815015085197697734}
-  m_Layer: 0
+  - component: {fileID: 8815015085197697736}
+  m_Layer: 6
   m_Name: Pipe_VeryTall_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!61 &8815015085197697736
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8815015085197697735}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0064907074, y: 1.2141142}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.0258293, y: 3.4282289}
+  m_EdgeRadius: 0
 --- !u!1 &8815015085893322928
 GameObject:
   m_ObjectHideFlags: 0
@@ -14818,7 +14980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8815015085893322943}
   - component: {fileID: 8815015085893322942}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PipeBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14884,7 +15046,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8815015085893322928}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.182665, y: 0.508, z: 2.607842}
+  m_LocalPosition: {x: 0, y: 0.508, z: 2.607842}
   m_LocalScale: {x: 1, y: 2.8, z: 1}
   m_Children: []
   m_Father: {fileID: 8815015085197697734}
