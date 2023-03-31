@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
             
             if (contactObjCollider.CompareTag("Monster"))
             {
-                ActionWhenMonsterCollided(contactObjCollider.transform);    
+                ActionWhenMonsterCollided(contactObjCollider.transform);  
             }
         }
     }
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            SetDie();
+            this.SetDie();
         }
     }
 

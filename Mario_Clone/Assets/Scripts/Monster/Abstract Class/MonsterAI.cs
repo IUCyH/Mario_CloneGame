@@ -14,8 +14,7 @@ public abstract class MonsterAI : MonoBehaviour
     
     protected Transform monster;
     protected ushort id;
-
-    Transform endPosOfCam;
+    
     Transform player;
     SpriteRenderer monsterSprRenderer;
     Animator monsterAnimator;
@@ -23,12 +22,16 @@ public abstract class MonsterAI : MonoBehaviour
     MonsterState currentState;
     
     int playerLayer;
+    bool becameVisible;
+    
+    public bool OutsideTheScreen { get; private set; }
 
     public abstract void Move();
     protected abstract void SetMonster();
     protected abstract void ChangeToOppositeDir();
     
     protected virtual void AdditionalActionsWhenGotDamage(){}
+    protected virtual void AdditionalActionWhenCollided(){}
     protected virtual void OnStart(){}
 
     public void SetDie()
@@ -56,16 +59,6 @@ public abstract class MonsterAI : MonoBehaviour
         return false;
     }
 
-    public bool IsOutsideTheScreen()
-    {
-        if (endPosOfCam.position.x > monster.position.x)
-        {
-            return true;
-        }
-
-        return false;
-    }
-
     public void SetActiveToFalse()
     {
         if (!gameObject.activeSelf)
@@ -83,10 +76,8 @@ public abstract class MonsterAI : MonoBehaviour
 
     void Start()
     {
-        var endOfCamObj = GameObject.FindGameObjectWithTag("EndOfCam");
         var playerObj = GameObject.FindGameObjectWithTag("Player");
         
-        endPosOfCam = endOfCamObj.transform;
         player = playerObj.transform;
         monster = transform;
 
@@ -95,16 +86,24 @@ public abstract class MonsterAI : MonoBehaviour
         
         playerLayer = 1 << LayerMask.NameToLayer("Player");
         currentState = MonsterState.None;
-
+        OutsideTheScreen = false;
+        
         OnStart();
         SetMonster();
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        AdditionalActionWhenCollided();
+        
         var contactTransform = col.transform;
         if (contactTransform.CompareTag("Player") || contactTransform.CompareTag("Map")) return;
 
         ChangeToOppositeDir();
+    }
+    
+    void OnBecameInvisible()
+    {
+        OutsideTheScreen = true;
     }
 }

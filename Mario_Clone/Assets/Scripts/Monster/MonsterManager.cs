@@ -45,7 +45,7 @@ public class MonsterManager : SingletonMonoBehaviour<MonsterManager>
     {
         for(int i = 0; i < monsters.Count; i++)
         {
-            if (monsters[i].IsOutsideTheScreen())
+            if (monsters[i].OutsideTheScreen)
             {
                 monsters[i].SetActiveToFalse();
                 RemoveMonsterFromList(monsters[i]);

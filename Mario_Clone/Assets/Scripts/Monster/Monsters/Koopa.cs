@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Monster.Monsters
@@ -5,18 +6,14 @@ namespace Monster.Monsters
     public class Koopa : MonsterAI
     {
         [SerializeField]
-        Koopa_Rolling koopaRolling;
-        [SerializeField]
-        BoxCollider2D monsterCollider;
-        [SerializeField]
         float speed;
         [SerializeField]
         float rollingSpeed;
+        bool moveFast;
 
         protected override void SetMonster()
         {
             base.id = 01;
-            koopaRolling.SetActive(false);
         }
 
         protected override void ChangeToOppositeDir()
@@ -26,8 +23,16 @@ namespace Monster.Monsters
 
         protected override void AdditionalActionsWhenGotDamage()
         {
-            monsterCollider.enabled = false;
-            koopaRolling.SetActive(true);
+            gameObject.tag = "Shell";
+        }
+
+        protected override void AdditionalActionWhenCollided()
+        {
+            if (CompareTag("Shell"))
+            {
+                Debug.Log("It is shell");
+                moveFast = true;
+            }
         }
 
         public override void Move()
@@ -35,9 +40,17 @@ namespace Monster.Monsters
             base.monster.position += speed * Time.deltaTime * Vector3.left;
         }
         
-        public void MoveFaster()
+        void MoveFaster()
         {
-            monster.position += rollingSpeed * Time.deltaTime * Vector3.left;
+            monster.position += rollingSpeed * Time.deltaTime * Vector3.right;
+        }
+
+        void Update()
+        {
+            if (moveFast)
+            {
+                MoveFaster();
+            }
         }
     }
 }
