@@ -106,6 +106,7 @@ public class PlayerJump : MonoBehaviour
         var force = jumpForceWhenSteppingMonster * Time.fixedDeltaTime * Vector2.up;
 
         playerRB.velocity = Vector3.zero;
+        
         steppingMonsterNow = true;
         playerRB.AddForce(force, ForceMode2D.Impulse);
         steppingMonsterNow = false;
