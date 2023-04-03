@@ -15,9 +15,9 @@ X
 (Assets/Scripts/Monster/Monsters/Koopa.cs,f\4\f41876ae3528861d7b34bd77fdbd486d580808cb
 S
 #Assets/Scripts/Player/PlayerMove.cs,7\9\797021e9102fe455ce5965051fbeff628e429581
-Y
-)Assets/Scripts/Player/PlayerController.cs,c\1\c1b2abcd3d72732cf3bf687bc9080c1357596be9
 b
 2Assets/Scripts/Monster/Abstract Class/MonsterAI.cs,7\7\777254de85f61d9bbc57ec21c07b68d57fc4b85e
 X
 (Assets/Scripts/Monster/MonsterManager.cs,6\5\65a55025c6279f40f6c1c950f9e18596ee2f4884
+Y
+)Assets/Scripts/Player/PlayerController.cs,c\1\c1b2abcd3d72732cf3bf687bc9080c1357596be9
