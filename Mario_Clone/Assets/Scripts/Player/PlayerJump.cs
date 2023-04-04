@@ -8,7 +8,7 @@ public class PlayerJump : MonoBehaviour
     [SerializeField]
     PlayerController player;
     PlayerAnimation playerAnimController;
-    
+
     [SerializeField]
     Rigidbody2D playerRB;
     [SerializeField]
@@ -27,17 +27,20 @@ public class PlayerJump : MonoBehaviour
     float timer;
     [SerializeField]
     float maxTime;
-    
+    float getAxisJumpKey;
+
     [SerializeField]
     bool pressJumpKey;
     [SerializeField]
     bool canJump;
-    bool steppingMonsterNow;
     [SerializeField]
     bool isJumping;
+    bool steppingMonsterNow;
+    bool playerOnGround;
+
     int groundLayer;
 
-    public void Jump()
+    public void CheckJump()
     {
         if (steppingMonsterNow)
         {
@@ -45,21 +48,24 @@ public class PlayerJump : MonoBehaviour
             return;
         }
 
-        var playerOnGroundNow = IsPlayerOnGround();
+        playerOnGround = IsPlayerOnGround();
 
-        canJump = playerOnGroundNow;
-
-        CalculateJumpForceAndJump();
-        
-        SetJumpAnimation(playerOnGroundNow);
+        canJump = playerOnGround;
+        CheckIfJumpKeyPressed();
     }
-    
+
+    public void Jump()
+    {
+        CalculateJumpForceAndJump();
+
+        SetJumpAnimation(playerOnGround);
+    }
+
     void CalculateJumpForceAndJump()
     {
-        CheckIfJumpKeyPressed();
         CheckIsJumping();
 
-        if (timer <= maxTime && pressJumpKey)
+        if (pressJumpKey && timer <= maxTime)
         {
             playerRB.velocity = jumpForce * Time.fixedDeltaTime * Vector2.up;
             

@@ -5,7 +5,7 @@ public enum MonsterState
 {
     None = -1,
     Moving,
-    Die,
+    Die
 }
 
 public abstract class MonsterAI : MonoBehaviour
@@ -20,6 +20,11 @@ public abstract class MonsterAI : MonoBehaviour
     Animator monsterAnimator;
 
     MonsterState currentState;
+
+    const string playerTag = "Player";
+    const string mapTag = "Map";
+    const string monsterTag = "Monster";
+    
     
     int playerLayer;
     bool becameVisible;
@@ -31,7 +36,7 @@ public abstract class MonsterAI : MonoBehaviour
     protected abstract void ChangeToOppositeDir();
     
     protected virtual void AdditionalActionsWhenGotDamage(){}
-    protected virtual void AdditionalActionWhenCollided(){}
+    protected virtual void AdditionalActionWhenCollided(Collision2D col){}
     protected virtual void OnStart(){}
 
     public void SetDie()
@@ -94,16 +99,21 @@ public abstract class MonsterAI : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        AdditionalActionWhenCollided();
+        AdditionalActionWhenCollided(col);
         
         var contactTransform = col.transform;
-        if (contactTransform.CompareTag("Player") || contactTransform.CompareTag("Map")) return;
+        
+        if (contactTransform.CompareTag(playerTag)) return;
+        if (contactTransform.CompareTag(mapTag)) return;
+        if (contactTransform.CompareTag(monsterTag)) return;
 
         ChangeToOppositeDir();
     }
     
     void OnBecameInvisible()
     {
+        if (player.position.x < monster.position.x) return;
+        
         OutsideTheScreen = true;
     }
 }

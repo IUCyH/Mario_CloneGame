@@ -3310,6 +3310,7 @@ GameObject:
   - component: {fileID: 1073386222}
   - component: {fileID: 1073386224}
   - component: {fileID: 1073386223}
+  - component: {fileID: 1073386225}
   m_Layer: 3
   m_Name: Koopa_00
   m_TagString: Monster
@@ -3371,7 +3372,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 9d8e8c8f759123846aaeae9123e0a5cc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa53c7d6bcc3fcb4a824587c38ab0033, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3413,8 +3414,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1179ff39b201b842a82f03ce4cef80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  koopaCollider: {fileID: 1073386223}
+  shellCollider: {fileID: 1073386225}
   speed: 1.9
-  rollingSpeed: 5
+  rollingSpeed: 12
 --- !u!61 &1073386223
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3437,7 +3440,7 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
@@ -3462,6 +3465,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &1073386225
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073386218}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.3}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1.5}
+    newSize: {x: 1, y: 1.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.9}
+  m_EdgeRadius: 0
 --- !u!1 &1079611768
 GameObject:
   m_ObjectHideFlags: 0
@@ -6262,7 +6291,7 @@ MonoBehaviour:
   jumpForceIncrement: 5
   jumpForce: 500
   jumpForceWhenSteppingMonster: 500
-  maxTime: 0.3
+  maxTime: 0.4
   pressJumpKey: 0
   canJump: 0
   isJumping: 0

@@ -26,7 +26,7 @@ public class PlayerMove : MonoBehaviour
     
     public void Move()
     {
-        var dir = Input.GetAxis("Horizontal");
+        var dir = Input.GetAxisRaw("Horizontal");
         nextPlayerPos.x = dir * speed * Time.deltaTime;
 
         if (player.IsPlayerCanMove(dir))

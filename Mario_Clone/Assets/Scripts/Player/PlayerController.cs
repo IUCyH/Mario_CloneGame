@@ -29,11 +29,6 @@ public class PlayerController : MonoBehaviour
         return playerAnimController;
     }
     
-    public void JumpWhenSteppingMonster()
-    {
-        
-    }
-    
     public bool IsPlayerCanMove(float dir)
     {
         return !playerMovementLimit.IsPlayerCannotMove(dir);
@@ -80,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        playerJump.Jump();
+        playerJump.CheckJump();
         playerMove.SetMoveSpeed();
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -90,5 +85,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         playerMove.Move();
+        playerJump.Jump();
     }
 }
