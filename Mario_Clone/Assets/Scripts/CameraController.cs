@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
     Vector3 mapEndPosition;
 
     [SerializeField]
-    float startMovingValue;
+    float playerAdditionalPosX;
 
     void Move()
     {
@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
 
     bool IsCanMove()
     {
-        playerPositionX = player.position.x + startMovingValue;
+        playerPositionX = player.position.x + playerAdditionalPosX;
         var camPos = cam.position;
         bool isCanMove = !(playerPositionX < camPos.x || camPos.x > mapEndPosition.x);
     

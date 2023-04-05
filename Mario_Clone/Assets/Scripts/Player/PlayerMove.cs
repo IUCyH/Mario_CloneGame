@@ -22,8 +22,6 @@ public class PlayerMove : MonoBehaviour
     float walkSpeed;
     float speed;
 
-    bool isRunning;
-    
     public void Move()
     {
         var dir = Input.GetAxisRaw("Horizontal");
@@ -31,7 +29,7 @@ public class PlayerMove : MonoBehaviour
 
         if (player.IsPlayerCanMove(dir))
         {
-            playerTransform.position += nextPlayerPos;
+            playerTransform.Translate(nextPlayerPos);
         }
 
         SetPlayerRotation(dir);
@@ -40,24 +38,16 @@ public class PlayerMove : MonoBehaviour
 
     public void SetMoveSpeed()
     {
-        CheckIsRunKeyPressed();
+        var running = CheckIsRunKeyPressed();
 
-        speed = isRunning ? runSpeed : walkSpeed;
+        speed = running ? runSpeed : walkSpeed; 
     }
 
-    void CheckIsRunKeyPressed()
+    bool CheckIsRunKeyPressed()
     {
-        bool runKeyPressed = Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift);
-        bool notRunKeyPressed = Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift);
-
-        if (runKeyPressed)
-        {
-            isRunning = true;
-        }
-        if (notRunKeyPressed)
-        {
-            isRunning = false;
-        }
+        var runKeyPressed = Input.GetAxisRaw("Run");
+        
+        return runKeyPressed > 0;
     }
     
     void SetPlayerRotation(float dir)

@@ -8,6 +8,7 @@ TagManager:
   - Monster
   - Map
   - Shell
+  - MysteryBox
   layers:
   - Default
   - TransparentFX

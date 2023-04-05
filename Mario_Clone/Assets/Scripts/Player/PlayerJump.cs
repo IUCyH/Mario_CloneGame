@@ -58,7 +58,7 @@ public class PlayerJump : MonoBehaviour
     {
         CalculateJumpForceAndJump();
 
-        SetJumpAnimation(playerOnGround);
+        SetJumpAnimation();
     }
 
     void CalculateJumpForceAndJump()
@@ -125,7 +125,7 @@ public class PlayerJump : MonoBehaviour
         return isGround;
     }
 
-    void SetJumpAnimation(bool playerOnGround)
+    void SetJumpAnimation()
     {
         if (playerOnGround)
         {

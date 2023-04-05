@@ -48,6 +48,10 @@ public class PlayerController : MonoBehaviour
             {
                 ActionWhenMonsterCollided(contactObjCollider.transform);  
             }
+            if(contactObjCollider.CompareTag("MysteryBox"))
+            {
+                ActionWhenMysteryBoxCollied();
+            }
         }
     }
 
@@ -66,6 +70,11 @@ public class PlayerController : MonoBehaviour
         {
             this.SetDie();
         }
+    }
+
+    void ActionWhenMysteryBoxCollied()
+    {
+        
     }
 
     void Start()

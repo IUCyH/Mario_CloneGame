@@ -21,9 +21,10 @@ public abstract class MonsterAI : MonoBehaviour
 
     MonsterState currentState;
 
-    const string playerTag = "Player";
-    const string mapTag = "Map";
-    const string monsterTag = "Monster";
+    const string PlayerTag = "Player";
+    const string MapTag = "Map";
+    const string MonsterTag = "Monster";
+    const string MysteryBoxTag = "MysteryBox";
     
     
     int playerLayer;
@@ -103,9 +104,10 @@ public abstract class MonsterAI : MonoBehaviour
         
         var contactTransform = col.transform;
         
-        if (contactTransform.CompareTag(playerTag)) return;
-        if (contactTransform.CompareTag(mapTag)) return;
-        if (contactTransform.CompareTag(monsterTag)) return;
+        if (contactTransform.CompareTag(PlayerTag)) return;
+        if (contactTransform.CompareTag(MapTag)) return;
+        if (contactTransform.CompareTag(MonsterTag)) return;
+        if (contactTransform.CompareTag(MysteryBoxTag)) return;
 
         ChangeToOppositeDir();
     }
