@@ -17,6 +17,8 @@ R
 "Assets/Scripts/CameraController.cs,1\9\19ab53079cee46b93c9edb6fcda45169a200d88f
 Y
 )Assets/Scripts/Monster/Monsters/Goomba.cs,3\4\343915b09190ee15aec6fd400c9562fccbbd34e4
+V
+&Assets/Scripts/Player/MovementLimit.cs,f\1\f101a2810ea892e81c5fa2ccb3be1d548c19d828
 S
 #Assets/Scripts/Player/PlayerJump.cs,2\4\24f7c66ce92cb36a428d0e72d1481b8548c812c1
 b

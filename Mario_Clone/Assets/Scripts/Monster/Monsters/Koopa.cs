@@ -18,8 +18,8 @@ namespace Monster.Monsters
         BoxCollider2D shellCollider;
         KoopaState koopaState;
 
-        const string playerTag = "Player";
-        const string monsterTag = "Monster";
+        const string PlayerTag = "Player";
+        const string MonsterTag = "Monster";
         
         [SerializeField]
         float speed;
@@ -59,7 +59,7 @@ namespace Monster.Monsters
             {
                 var colTransform = col.transform;
                 
-                if (colTransform.CompareTag(monsterTag))
+                if (colTransform.CompareTag(MonsterTag))
                 {
                     var monsterAI = colTransform.GetComponent<MonsterAI>();
                     if (monsterAI != null)
@@ -68,7 +68,7 @@ namespace Monster.Monsters
                     }
                 }
                 
-                else if (colTransform.CompareTag(playerTag))
+                else if (colTransform.CompareTag(PlayerTag))
                 {
                     var player = colTransform.GetComponent<PlayerController>();
                     if (player != null && moveFast == true)
