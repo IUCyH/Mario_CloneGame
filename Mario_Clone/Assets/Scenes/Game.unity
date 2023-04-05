@@ -6192,6 +6192,7 @@ GameObject:
   - component: {fileID: 1519013951}
   - component: {fileID: 1519013954}
   - component: {fileID: 1519013953}
+  - component: {fileID: 1519013955}
   - component: {fileID: 1519013950}
   m_Layer: 8
   m_Name: Player
@@ -6251,6 +6252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMove: {fileID: 1519013954}
   playerJump: {fileID: 1519013951}
+  tilemapPosCalculator: {fileID: 1519013955}
   playerMovementLimit: {fileID: 1519013953}
   feetPos: {fileID: 1920303166}
 --- !u!95 &1519013950
@@ -6353,6 +6355,19 @@ MonoBehaviour:
   mario: {fileID: 30010363}
   runSpeed: 7.5
   walkSpeed: 5
+--- !u!114 &1519013955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519013946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee0bcee381f1244db7b70214daa5ce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 968173808}
 --- !u!1 &1522857704
 GameObject:
   m_ObjectHideFlags: 0

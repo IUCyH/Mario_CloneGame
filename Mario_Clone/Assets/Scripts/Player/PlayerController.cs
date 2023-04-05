@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     PlayerMove playerMove;
     [SerializeField]
     PlayerJump playerJump;
+    [SerializeField]
+    TilemapPositionCalculate tilemapPosCalculator;
 
     [SerializeField]
     MovementLimit playerMovementLimit;
@@ -50,7 +52,7 @@ public class PlayerController : MonoBehaviour
             }
             if(contactObjCollider.CompareTag("MysteryBox"))
             {
-                ActionWhenMysteryBoxCollied();
+                ActionWhenMysteryBoxCollied(contactObj.point);
             }
         }
     }
@@ -72,9 +74,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void ActionWhenMysteryBoxCollied()
+    void ActionWhenMysteryBoxCollied(Vector3 point)
     {
-        
+        tilemapPosCalculator.CalculatePosition(point);
     }
 
     void Start()
