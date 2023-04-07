@@ -13,13 +13,13 @@ public abstract class MonsterAI : MonoBehaviour
     const float RaycastDistance = 12f;
     
     protected Transform monster;
+    protected SpriteRenderer monsterSprRenderer;
+    protected MonsterState currentState;
     protected ushort id;
     
     Transform player;
-    SpriteRenderer monsterSprRenderer;
     Animator monsterAnimator;
 
-    MonsterState currentState;
 
     const string PlayerTag = "Player";
     const string MapTag = "Map";
@@ -38,7 +38,6 @@ public abstract class MonsterAI : MonoBehaviour
     
     protected virtual void AdditionalActionsWhenGotDamage(){}
     protected virtual void AdditionalActionWhenCollided(Collision2D col){}
-    protected virtual void OnStart(){}
 
     public void SetDie()
     {
@@ -94,7 +93,6 @@ public abstract class MonsterAI : MonoBehaviour
         currentState = MonsterState.None;
         OutsideTheScreen = false;
         
-        OnStart();
         SetMonster();
     }
 

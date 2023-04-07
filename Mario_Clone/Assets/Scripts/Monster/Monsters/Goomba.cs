@@ -5,15 +5,13 @@ namespace Monster.Monsters
     public class Goomba : MonsterAI
     {
         [SerializeField]
-        Collider2D monsterColl;
-        [SerializeField]
-        Rigidbody2D monsterRB;
-        [SerializeField]
         float speed;
+        int dieMonsterLayer;
 
         protected override void SetMonster()
         {
             base.id = 00;
+            dieMonsterLayer = LayerMask.NameToLayer("DieMonster");
         }
         
         protected override void ChangeToOppositeDir()
@@ -28,20 +26,13 @@ namespace Monster.Monsters
 
         protected override void AdditionalActionsWhenGotDamage()
         {
-            StopPhysics();
-            Invoke(nameof(base.SetActiveToFalse), MonsterManager.Instance.MonsterDisableTime);
+            gameObject.layer = dieMonsterLayer;
+            Invoke(nameof(HideSprite), MonsterManager.Instance.MonsterDisableTime);
         }
 
-        void StopPhysics()
+        void HideSprite()
         {
-            monsterRB.bodyType = RigidbodyType2D.Kinematic;  
-            monsterColl.enabled = false;
-        }
-
-        protected override void OnStart()
-        {
-            monsterRB = GetComponent<Rigidbody2D>();
-            monsterColl = GetComponent<Collider2D>();
+            monsterSprRenderer.sprite = null;
         }
     }
 }

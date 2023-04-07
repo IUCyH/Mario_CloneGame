@@ -5,18 +5,10 @@ namespace Monster.Monsters
 {
     public class Koopa : MonsterAI
     {
-        enum KoopaState
-        {
-            None = -1,
-            Default,
-            Shell
-        }
-
         [SerializeField]
         BoxCollider2D koopaCollider;
         [SerializeField]
         BoxCollider2D shellCollider;
-        KoopaState koopaState;
 
         const string PlayerTag = "Player";
         const string MonsterTag = "Monster";
@@ -31,7 +23,6 @@ namespace Monster.Monsters
         {
             base.id = 01;
             shellCollider.enabled = false;
-            SetState(KoopaState.Default);
         }
 
         protected override void ChangeToOppositeDir()
@@ -49,13 +40,11 @@ namespace Monster.Monsters
 
             shellCollider.enabled = true;
             koopaCollider.enabled = false;
-
-            SetState(KoopaState.Shell);
         }
 
         protected override void AdditionalActionWhenCollided(Collision2D col)
         {
-            if (CompareState(KoopaState.Shell))
+            if (currentState == MonsterState.Die)
             {
                 var colTransform = col.transform;
                 
@@ -90,17 +79,7 @@ namespace Monster.Monsters
         {
             monster.position += rollingSpeed * Time.deltaTime * Vector3.right;
         }
-
-        void SetState(KoopaState state)
-        {
-            koopaState = state;
-        }
-
-        bool CompareState(KoopaState state)
-        {
-            return koopaState == state;
-        }
-
+        
         void Update()
         {
             if (moveFast)

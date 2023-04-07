@@ -353,8 +353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!212 &73382784
 SpriteRenderer:
@@ -684,8 +682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!212 &254085783
 SpriteRenderer:
@@ -1214,8 +1210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!212 &451541957
 SpriteRenderer:
@@ -1831,8 +1825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!212 &674296666
 SpriteRenderer:
@@ -2112,8 +2104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!212 &784092512
 SpriteRenderer:
@@ -2279,8 +2269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!212 &792692045
 SpriteRenderer:
@@ -2610,8 +2598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!212 &855730148
 SpriteRenderer:
@@ -5111,8 +5097,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!212 &1308711310
 SpriteRenderer:
@@ -5379,8 +5363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!212 &1330382285
 SpriteRenderer:
@@ -5874,8 +5856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!212 &1444374167
 SpriteRenderer:
@@ -6300,8 +6280,6 @@ MonoBehaviour:
   playerMovementLimit: {fileID: 1519013953}
   feetPos: {fileID: 1920303166}
   headPos: {fileID: 450550194}
-  dieSprite: {fileID: 21300000, guid: 2874376f3287a5c41b268e2a64864558, type: 3}
-  spriteRenderer: {fileID: 30010364}
 --- !u!95 &1519013950
 Animator:
   serializedVersion: 3
@@ -6512,8 +6490,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!212 &1536960052
 SpriteRenderer:
@@ -6711,8 +6687,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!95 &1545029288
 Animator:
@@ -7482,8 +7456,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!212 &1769033422
 SpriteRenderer:
@@ -8059,8 +8031,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!212 &1858677296
 SpriteRenderer:
@@ -8613,7 +8583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1920303165}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.473, z: 0}
+  m_LocalPosition: {x: 0, y: -0.4964, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1519013947}
@@ -8797,8 +8767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!212 &1960987610
 SpriteRenderer:
@@ -14348,8 +14316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f23be7ea8e6f4798980350e40a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColl: {fileID: 0}
-  monsterRB: {fileID: 0}
   speed: 2
 --- !u!212 &2123090390
 SpriteRenderer:
