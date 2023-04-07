@@ -11,19 +11,21 @@ public class PlayerController : MonoBehaviour
     PlayerJump playerJump;
     [SerializeField]
     TilemapPositionCalculate tilemapPosCalculator;
-
     [SerializeField]
     MovementLimit playerMovementLimit;
+    
     [SerializeField]
     Transform feetPos;
+    [SerializeField]
+    Transform headPos;
 
     int jumpCount;
     bool isPressedJumpKey;
 
     public void SetDie()
     {
+        playerAnimController.Play(PlayerMotion.Die);
         Time.timeScale = 0f;
-        Debug.Log("Im die..");
     }
     
     public PlayerAnimation GetPlayerAnimController()
@@ -76,6 +78,8 @@ public class PlayerController : MonoBehaviour
 
     void ActionWhenMysteryBoxCollied(Vector3 point)
     {
+        if (headPos.position.y > point.y) return;
+        
         tilemapPosCalculator.CalculatePosition(point);
     }
 
@@ -90,7 +94,11 @@ public class PlayerController : MonoBehaviour
         playerMove.SetMoveSpeed();
 
         if (Input.GetKeyDown(KeyCode.P))
+        {
+            playerAnimController.Play(PlayerMotion.Idle);
+            playerAnimController.Stop(PlayerMotion.Die);
             Time.timeScale = 1f;
+        }
     }
 
     void FixedUpdate()

@@ -10,6 +10,7 @@ public enum PlayerMotion
     Idle,
     Jump,
     Walk,
+    Die
 }
 
 public enum PlayerAnimSpeedParams
