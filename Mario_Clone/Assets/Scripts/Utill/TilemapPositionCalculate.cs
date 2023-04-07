@@ -7,7 +7,7 @@ public class TilemapPositionCalculate : MonoBehaviour
 {
     [SerializeField]
     Tilemap tilemap;
-    
+
     public void CalculatePosition(Vector3 collisionPoint)
     {
         
