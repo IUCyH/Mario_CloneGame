@@ -11,6 +11,11 @@ public enum MonsterState
 public abstract class MonsterAI : MonoBehaviour
 {
     const float RaycastDistance = 12f;
+    
+    const string PlayerTag = "Player";
+    const string MapTag = "Map";
+    const string MonsterTag = "Monster";
+    const string MysteryBoxTag = "MysteryBox";
 
     protected Transform monster;
     protected SpriteRenderer monsterSprRenderer;
@@ -22,13 +27,6 @@ public abstract class MonsterAI : MonoBehaviour
     Transform player;
     Animator monsterAnimator;
 
-
-    const string PlayerTag = "Player";
-    const string MapTag = "Map";
-    const string MonsterTag = "Monster";
-    const string MysteryBoxTag = "MysteryBox";
-
-
     int playerLayer;
     bool becameVisible;
 
@@ -38,7 +36,6 @@ public abstract class MonsterAI : MonoBehaviour
     protected abstract void SetMonster();
 
     protected virtual void AdditionalActionsWhenGotDamage(){}
-
     protected virtual void AdditionalActionWhenCollided(Collision2D col){}
 
     public void SetDie()
@@ -85,7 +82,7 @@ public abstract class MonsterAI : MonoBehaviour
         monster.localScale = new Vector3(scaleX * -1, 1f, 1f);
     }
 
-bool StateEquals(MonsterState state1, MonsterState state2)
+    bool StateEquals(MonsterState state1, MonsterState state2)
     {
         return state1 == state2;
     }
