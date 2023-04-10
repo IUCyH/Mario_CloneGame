@@ -3403,7 +3403,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: fa53c7d6bcc3fcb4a824587c38ab0033, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9d8e8c8f759123846aaeae9123e0a5cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3448,7 +3448,7 @@ MonoBehaviour:
   koopaCollider: {fileID: 1073386223}
   shellCollider: {fileID: 1073386225}
   speed: 1.9
-  rollingSpeed: 12
+  rollingSpeed: 13
 --- !u!61 &1073386223
 BoxCollider2D:
   m_ObjectHideFlags: 0

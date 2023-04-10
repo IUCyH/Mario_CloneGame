@@ -1,10 +1,13 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Monster.Monsters
 {
     public class Koopa : MonsterAI
     {
+        Coroutine currCoroutine;
+        
         [SerializeField]
         BoxCollider2D koopaCollider;
         [SerializeField]
@@ -17,18 +20,25 @@ namespace Monster.Monsters
         float speed;
         [SerializeField]
         float rollingSpeed;
-        bool moveFast;
+
+        IEnumerator Coroutine_MoveFaster()
+        {
+            moveSpeed = rollingSpeed;
+
+            while (gameObject.activeSelf)
+            {
+                MoveFaster();
+                
+                yield return null;
+            }
+        }
 
         protected override void SetMonster()
         {
             base.id = 01;
+            base.moveSpeed = speed;
+            
             shellCollider.enabled = false;
-        }
-
-        protected override void ChangeToOppositeDir()
-        {
-            speed *= -1;
-            rollingSpeed *= -1;
         }
 
         protected override void AdditionalActionsWhenGotDamage()
@@ -60,32 +70,27 @@ namespace Monster.Monsters
                 else if (colTransform.CompareTag(PlayerTag))
                 {
                     var player = colTransform.GetComponent<PlayerController>();
-                    if (player != null && moveFast == true)
+                    if (player != null && currCoroutine != null)
                     {
                         player.SetDie();
                     }
                 }
 
-                moveFast = true;
+                if (currCoroutine == null)
+                {
+                    currCoroutine = StartCoroutine(Coroutine_MoveFaster());
+                }
             }
         }
 
         public override void Move()
         {
-            base.monster.position += speed * Time.deltaTime * Vector3.left;
+            base.monster.position += moveSpeed * Time.deltaTime * Vector3.left;
         }
         
         void MoveFaster()
         {
-            monster.position += rollingSpeed * Time.deltaTime * Vector3.right;
-        }
-        
-        void Update()
-        {
-            if (moveFast)
-            {
-                MoveFaster();
-            }
+            monster.position += moveSpeed * Time.deltaTime * Vector3.right;
         }
     }
 }

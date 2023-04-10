@@ -11,12 +11,14 @@ public enum MonsterState
 public abstract class MonsterAI : MonoBehaviour
 {
     const float RaycastDistance = 12f;
-    
+
     protected Transform monster;
     protected SpriteRenderer monsterSprRenderer;
     protected MonsterState currentState;
-    protected ushort id;
     
+    protected float moveSpeed;
+    protected ushort id;
+
     Transform player;
     Animator monsterAnimator;
 
@@ -25,18 +27,18 @@ public abstract class MonsterAI : MonoBehaviour
     const string MapTag = "Map";
     const string MonsterTag = "Monster";
     const string MysteryBoxTag = "MysteryBox";
-    
-    
+
+
     int playerLayer;
     bool becameVisible;
-    
+
     public bool OutsideTheScreen { get; private set; }
 
     public abstract void Move();
     protected abstract void SetMonster();
-    protected abstract void ChangeToOppositeDir();
-    
+
     protected virtual void AdditionalActionsWhenGotDamage(){}
+
     protected virtual void AdditionalActionWhenCollided(Collision2D col){}
 
     public void SetDie()
@@ -44,9 +46,10 @@ public abstract class MonsterAI : MonoBehaviour
         currentState = MonsterState.Die;
         monsterSprRenderer.sprite = MonsterManager.Instance.GetMonsterDieSprite(id);
         monsterAnimator.enabled = false;
-        
+
         AdditionalActionsWhenGotDamage();
     }
+
     public bool IsCanMove()
     {
         if (StateEquals(currentState, MonsterState.Moving)) return true;
@@ -70,11 +73,19 @@ public abstract class MonsterAI : MonoBehaviour
         {
             return;
         }
-        
+
         gameObject.SetActive(false);
     }
 
-    bool StateEquals(MonsterState state1, MonsterState state2)
+    void ChangeToOppositeDir()
+    {
+        var scaleX = monster.localScale.x;
+        
+        moveSpeed *= -1;
+        monster.localScale = new Vector3(scaleX * -1, 1f, 1f);
+    }
+
+bool StateEquals(MonsterState state1, MonsterState state2)
     {
         return state1 == state2;
     }

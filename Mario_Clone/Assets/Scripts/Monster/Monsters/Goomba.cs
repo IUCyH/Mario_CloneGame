@@ -11,17 +11,14 @@ namespace Monster.Monsters
         protected override void SetMonster()
         {
             base.id = 00;
+            base.moveSpeed = speed;
+            
             dieMonsterLayer = LayerMask.NameToLayer("DieMonster");
-        }
-        
-        protected override void ChangeToOppositeDir()
-        {
-            speed *= -1;
         }
 
         public override void Move()
         {
-            base.monster.position += speed * Time.deltaTime * Vector3.left;
+            base.monster.position += moveSpeed * Time.deltaTime * Vector3.left;
         }
 
         protected override void AdditionalActionsWhenGotDamage()
