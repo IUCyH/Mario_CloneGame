@@ -23,8 +23,13 @@ public class TilemapPositionCalculate : MonoBehaviour
         {
             /*tilemap.SetTile(newPos, cell);
             tilemap.SetTile(cellPos, null);*/
-            
-            ItemManager.Instance.ShowItem(cellPos);
+
+            Vector3 itemPos = cellPos;
+            //itemPos.x += 2;
+            itemPos.y += 2;
+            itemPos.x += (tilemap.cellSize * 0.5f).x; //매직넘버 전환 등 수정예정
+
+            ItemManager.Instance.ShowItem(itemPos);
         }
     }
 }

@@ -1,8 +1,6 @@
 
 S
 #Assets/Scripts/Player/PlayerJump.cs,2\4\24f7c66ce92cb36a428d0e72d1481b8548c812c1
-Y
-)Assets/Scripts/Monster/Monsters/Goomba.cs,3\4\343915b09190ee15aec6fd400c9562fccbbd34e4
 S
 #Assets/Scripts/Player/PlayerMove.cs,7\9\797021e9102fe455ce5965051fbeff628e429581
 R
