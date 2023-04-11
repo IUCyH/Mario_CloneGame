@@ -47,30 +47,30 @@ public class ItemManager : SingletonMonoBehaviour<ItemManager>
     void SetItem(GameObject item, Vector3 itemPosition)
     {
         var itemType = GetRandomItem();
-        Item itemObj = null;
+        Item itemInstance = null;
         
         switch (itemType)
         {
             case ItemType.Coin:
-                itemObj = item.AddComponent<Coin>();
+                itemInstance = item.AddComponent<Coin>();
                 break;
             case ItemType.MagicMushroom:
-                itemObj = item.AddComponent<MagicMushroom>();
+                itemInstance = item.AddComponent<MagicMushroom>();
                 break;
             case ItemType.UpMushroom:
-                itemObj = item.AddComponent<UpMushroom>();
+                itemInstance = item.AddComponent<UpMushroom>();
                 break;
             case ItemType.StarMan:
-                itemObj = item.AddComponent<StarMan>();
+                itemInstance = item.AddComponent<StarMan>();
                 break;
         }
 
         var spriteRenderer = item.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = GetItemSprite((int)itemType);
 
-        if (itemObj != null)
+        if (itemInstance != null)
         {
-            itemObj.SetItemPosition(itemPosition);
+            itemInstance.SetItemPosition(itemPosition);
         }
     }
     
