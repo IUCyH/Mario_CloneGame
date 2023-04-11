@@ -960,7 +960,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2d4208ce4e20e4982abdd9a4509cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
+  itemGameObj: {fileID: 966603002332671191, guid: 7f65a30e5c853b84b8c48870b9e9a787, type: 3}
+  itemSprites: []
 --- !u!4 &324226350
 Transform:
   m_ObjectHideFlags: 0

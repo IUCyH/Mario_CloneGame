@@ -21,8 +21,10 @@ public class TilemapPositionCalculate : MonoBehaviour
 
         if (tilemap.HasTile(cellPos))
         {
-            tilemap.SetTile(newPos, cell);
-            tilemap.SetTile(cellPos, null);
+            /*tilemap.SetTile(newPos, cell);
+            tilemap.SetTile(cellPos, null);*/
+            
+            ItemManager.Instance.ShowItem(cellPos);
         }
     }
 }

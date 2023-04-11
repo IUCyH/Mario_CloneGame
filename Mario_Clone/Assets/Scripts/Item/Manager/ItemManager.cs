@@ -1,35 +1,106 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using Random = System.Random;
 
 public class ItemManager : SingletonMonoBehaviour<ItemManager>
 {
-    Dictionary<int, ObjectPool<Item>> itemDictionary = new Dictionary<int, ObjectPool<Item>>();
+    enum ItemType
+    {
+        None = -1,
+        Coin,
+        MagicMushroom,
+        UpMushroom,
+        StarMan,
+        Max
+    }
+    
+    ObjectPool<GameObject> itemPool;
+    
     [SerializeField]
-    Item[] items;
+    GameObject itemGameObj;
+    [SerializeField]
+    Sprite[] itemSprites;
+
+    Random random = new Random();
+    
     Transform itemManagerTransform;
 
+    public void DestroyItem(GameObject item)
+    {
+        itemPool.Set(item);
+        Destroy(item.GetComponent<Item>());
+        
+        item.SetActive(false);
+    }
+    
+    public void ShowItem(Vector3 itemPosition)
+    {
+        var item = itemPool.Get();
+        SetItem(item, itemPosition);
+        
+        item.SetActive(true);
+    }
+    
+    void SetItem(GameObject item, Vector3 itemPosition)
+    {
+        var itemType = GetRandomItem();
+        Item itemObj = null;
+        
+        switch (itemType)
+        {
+            case ItemType.Coin:
+                itemObj = item.AddComponent<Coin>();
+                break;
+            case ItemType.MagicMushroom:
+                itemObj = item.AddComponent<MagicMushroom>();
+                break;
+            case ItemType.UpMushroom:
+                itemObj = item.AddComponent<UpMushroom>();
+                break;
+            case ItemType.StarMan:
+                itemObj = item.AddComponent<StarMan>();
+                break;
+        }
+
+        var spriteRenderer = item.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = GetItemSprite((int)itemType);
+
+        if (itemObj != null)
+        {
+            itemObj.SetItemPosition(itemPosition);
+        }
+    }
+    
+    ItemType GetRandomItem()
+    {
+        return (ItemType)random.Next((int)ItemType.None + 1, (int)ItemType.Max);
+    }
+    
+    Sprite GetItemSprite(int type)
+    {
+        return itemSprites[type];
+    }
+    
     protected override void OnStart()
     {
-        items = Resources.LoadAll<Item>("Item/Prefabs");
         itemManagerTransform = transform;
-        
-        var length = items.Length;
-        for (int i = 0; i < length; i++)
+
+        itemSprites = Resources.LoadAll<Sprite>("Item/Sprites");
+        itemPool = new ObjectPool<GameObject>(itemSprites.Length * 2, () =>
         {
-            var item = items[i];
-            itemDictionary.Add(i, new ObjectPool<Item>(2, () =>
-            {
-                var obj = Instantiate(item);
-                var objTransform = obj.transform;
-                
-                objTransform.SetParent(itemManagerTransform);
-                objTransform.localPosition = Vector3.zero;
-                objTransform.localScale = Vector3.one;
-                obj.gameObject.SetActive(false);
-                
-                return obj;
-            }));
-        }
+            var obj = Instantiate(itemGameObj);
+            var objTransform = obj.transform;
+            
+            objTransform.SetParent(itemManagerTransform);
+            objTransform.position = Vector3.zero;
+            objTransform.localScale = Vector3.one;
+            
+            obj.SetActive(false);
+            
+            return obj;
+        });
     }
 }
