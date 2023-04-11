@@ -1,0 +1,7 @@
+
+Mcsharpsquid:S3903"+Move 'PlayerMotion' into a named namespace.(µ±ð÷úÿÿÿÿ
+Vcsharpsquid:S3903"4Move 'PlayerAnimSpeedParams' into a named namespace.(Ë¥òŠþÿÿÿÿ
+Kcsharpsquid:S3903".Move 'PlayerAnimation' into a named namespace.(ÜÊÝë
+Bcsharpsquid:S2933" Make 'stringBuilder' 'readonly'.(€È¿¾øÿÿÿÿ
+:csharpsquid:S2933"Make 'playerAnims' 'readonly'.(Œ÷ú%
+Jcsharpsquid:S2933"(Make 'playerAnimSpeedParams' 'readonly'.(Òšú³ûÿÿÿÿ
