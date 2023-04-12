@@ -15,7 +15,40 @@ Y
 )Assets/Scripts/Monster/Monsters/Goomba.cs,3\4\343915b09190ee15aec6fd400c9562fccbbd34e4
 X
 (Assets/Scripts/Monster/Monsters/Koopa.cs,f\4\f41876ae3528861d7b34bd77fdbd486d580808cb
+<<<<<<< Updated upstream
 `
 0Assets/Scripts/Utill/TilemapPositionCalculate.cs,b\2\b2ff707901ad4abf0947e807e75675116cd8dbc0
 S
 #Assets/Scripts/Player/PlayerJump.cs,2\4\24f7c66ce92cb36a428d0e72d1481b8548c812c1
+=======
+b
+2Assets/Scripts/Monster/Abstract Class/MonsterAI.cs,7\7\777254de85f61d9bbc57ec21c07b68d57fc4b85e
+s
+CAssets/Scripts/Animation/AnimationManagement/AnimationManagement.cs,9\c\9cf25c56bc77b5b655242b3b8e157d0e0a5037b2
+Y
+)Assets/Scripts/Player/PlayerController.cs,c\1\c1b2abcd3d72732cf3bf687bc9080c1357596be9
+`
+0Assets/Scripts/Monster/Manager/MonsterManager.cs,6\f\6f0b0e1d694113586dc7748749e2de992215a16b
+[
++Assets/Scripts/Animation/PlayerAnimation.cs,b\e\be3b5a66b45334c35070ba7bf230c118276f73ac
+^
+.Assets/Scripts/Utill/SingletonMonoBehaviour.cs,1\b\1bacebb4a7b67ab50ee2f2c48744745c8dd400bd
+R
+"Assets/Scripts/Utill/ObjectPool.cs,f\b\fb75627553b168ba507d9d7b188d88a29f7a47ba
+Z
+*Assets/Scripts/Item/Items/MagicMushroom.cs,1\b\1b5434d744965834bec334d0efb58d0207245204
+Q
+!Assets/Scripts/Item/Items/Coin.cs,a\8\a8d3a57b112e71fcc63e547db7ff2d769d84be0a
+W
+'Assets/Scripts/Item/Items/UpMushroom.cs,8\1\81c66ad82324b0e6887592db07294b9ca281de31
+T
+$Assets/Scripts/Item/Items/StarMan.cs,4\8\48d850e98b68d26207bb2d15e1780c700ca31e07
+Z
+*Assets/Scripts/Item/Manager/ItemManager.cs,0\8\088cb30c24ba56b517805e2c33fb0dd714022102
+K
+Assets/Scripts/Item/Item.cs,7\6\762c76fbe6041300b4702cfd8d035ae2b49118e3
+Y
+)Assets/Scripts/Monster/Monsters/Goomba.cs,3\4\343915b09190ee15aec6fd400c9562fccbbd34e4
+`
+0Assets/Scripts/Utill/TilemapPositionCalculate.cs,b\2\b2ff707901ad4abf0947e807e75675116cd8dbc0
+>>>>>>> Stashed changes
