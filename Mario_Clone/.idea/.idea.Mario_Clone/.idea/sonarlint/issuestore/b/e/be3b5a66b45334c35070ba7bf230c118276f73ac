@@ -1,16 +1,0 @@
-
-<<<<<<< Updated upstream
-Mcsharpsquid:S3903"+Move 'PlayerMotion' into a named namespace.(µ±ğ÷úÿÿÿÿ
-Vcsharpsquid:S3903"4Move 'PlayerAnimSpeedParams' into a named namespace.(Ë¥òŠşÿÿÿÿ
-Kcsharpsquid:S3903".Move 'PlayerAnimation' into a named namespace.(ÜÊİë
-Bcsharpsquid:S2933" Make 'stringBuilder' 'readonly'.(€È¿¾øÿÿÿÿ
-:csharpsquid:S2933"Make 'playerAnims' 'readonly'.(Œ÷ú%
-Jcsharpsquid:S2933"(Make 'playerAnimSpeedParams' 'readonly'.(Òšú³ûÿÿÿÿ
-=======
-]csharpsquid:S3903"4Move 'PlayerAnimSpeedParams' into a named namespace.(Ë¥òŠşÿÿÿÿ8ÅÏÈ¤ğ0
-Tcsharpsquid:S3903"+Move 'PlayerMotion' into a named namespace.(µ±ğ÷úÿÿÿÿ8–Š»ãë0
-Kcsharpsquid:S3903".Move 'PlayerAnimation' into a named namespace.(ÜÊİë
-Icsharpsquid:S2933" Make 'stringBuilder' 'readonly'.(€È¿¾øÿÿÿÿ8ìÜ¿ãë0
-Acsharpsquid:S2933"Make 'playerAnims' 'readonly'.(Œ÷ú%8‘†˜Şì0
-Qcsharpsquid:S2933"(Make 'playerAnimSpeedParams' 'readonly'.(Òšú³ûÿÿÿÿ8áÙ»¤ğ0
->>>>>>> Stashed changes

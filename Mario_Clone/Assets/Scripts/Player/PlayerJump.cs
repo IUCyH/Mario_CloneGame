@@ -7,7 +7,6 @@ public class PlayerJump : MonoBehaviour
 {
     [SerializeField]
     PlayerController player;
-    PlayerAnimation playerAnimController;
 
     [SerializeField]
     Rigidbody2D playerRB;
@@ -63,8 +62,6 @@ public class PlayerJump : MonoBehaviour
 
     void CalculateJumpForceAndJump()
     {
-        CheckIsJumping();
-
         if (pressJumpKey && timer <= maxTime)
         {
             playerRB.velocity = jumpForce * Time.fixedDeltaTime * Vector2.up;
@@ -74,6 +71,8 @@ public class PlayerJump : MonoBehaviour
         }
         else
         {
+            if (playerOnGround) isJumping = false;
+            
             pressJumpKey = false;
 
             timer = 0f;
@@ -92,18 +91,6 @@ public class PlayerJump : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.UpArrow))
         {
             pressJumpKey = false;
-        }
-    }
-
-    void CheckIsJumping()
-    {
-        if (canJump && isJumping)
-        {
-            isJumping = false;
-        }
-        else if (!canJump && pressJumpKey)
-        {
-            isJumping = true;
         }
     }
 
@@ -127,23 +114,20 @@ public class PlayerJump : MonoBehaviour
 
     void SetJumpAnimation()
     {
-        if (playerOnGround)
+        if (isJumping)
         {
-            playerAnimController.Stop(PlayerMotion.Jump);
+            player.PlayAnimation(PlayerMotion.Jump);
         }
+
         else
         {
-            if (isJumping)
-            {
-                playerAnimController.Play(PlayerMotion.Jump);
-            }
+            player.StopAnimation(PlayerMotion.Jump);
         }
     }
 
     void Start()
     {
         groundLayer = 1 << LayerMask.NameToLayer("Ground");
-        playerAnimController = player.GetPlayerAnimController();
         defaultJumpForce = jumpForce;
     }
 }

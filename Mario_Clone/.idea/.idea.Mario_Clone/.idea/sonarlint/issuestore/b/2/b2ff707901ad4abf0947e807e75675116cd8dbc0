@@ -1,13 +1,0 @@
-
-Tcsharpsquid:S3903"7Move 'TilemapPositionCalculate' into a named namespace.(ÿ¡°Ò
-<<<<<<< Updated upstream
-Jcsharpsquid:S1481"(Remove the unused local variable 'cell'.(¸∏öﬁ¯ˇˇˇˇ
-Lcsharpsquid:S1481"*Remove the unused local variable 'newPos'.(û•ç¶˘ˇˇˇˇ
-@csharpsquid:S125"Remove this commented out code.(∂Ÿï—˘ˇˇˇˇ
-;csharpsquid:S125"Remove this commented out code.(ûßå≠
-=======
-Qcsharpsquid:S1481"(Remove the unused local variable 'cell'.(¸∏öﬁ¯ˇˇˇˇ8ÒµÑ˜ˆ0
-Scsharpsquid:S1481"*Remove the unused local variable 'newPos'.(û•ç¶˘ˇˇˇˇ8ÒµÑ˜ˆ0
-Gcsharpsquid:S125"Remove this commented out code.(∂Ÿï—˘ˇˇˇˇ8ÒµÑ˜ˆ0
-Bcsharpsquid:S125"Remove this commented out code.(ûßå≠8Ù¿é˙ˆ0
->>>>>>> Stashed changes

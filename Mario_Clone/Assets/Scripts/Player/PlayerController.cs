@@ -27,10 +27,20 @@ public class PlayerController : MonoBehaviour
         playerAnimController.Play(PlayerMotion.Die);
         Time.timeScale = 0f;
     }
-    
-    public PlayerAnimation GetPlayerAnimController()
+
+    public void PlayAnimation(PlayerMotion motion)
     {
-        return playerAnimController;
+        playerAnimController.Play(motion);
+    }
+
+    public void StopAnimation(PlayerMotion motion)
+    {
+        playerAnimController.Stop(motion);
+    }
+
+    public void SetAnimationSpeed(PlayerAnimSpeedParams animSpeedParam, float animSpeed = 1f)
+    {
+        playerAnimController.SetAnimationSpeed(animSpeedParam, animSpeed);
     }
     
     public bool IsPlayerCanMove(float dir)
