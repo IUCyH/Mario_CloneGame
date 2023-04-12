@@ -10,11 +10,12 @@ public class Coin : Item
 
     IEnumerator Coroutine_ShowAnimation(Vector3 targetPos)
     {
+        Vector3 coinOrginPos = coin.position;
         float time = 0f;
-        
+
         while (true)
         {
-            var posProgress = Vector3.Lerp(coin.position, targetPos, 0.5f); //수정예정
+            var posProgress = Vector3.Lerp(coinOrginPos, targetPos, 0.5f); //수정예정
             posProgress.x = coin.position.x;
             posProgress.z = 0f;
             
