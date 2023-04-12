@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     PlayerJump playerJump;
     [SerializeField]
-    TilemapPositionCalculate tilemapPosCalculator;
+    ItemGenerate itemGenerater;
     [SerializeField]
     MovementLimit playerMovementLimit;
     
@@ -90,7 +90,12 @@ public class PlayerController : MonoBehaviour
     {
         if (headPos.position.y > point.y) return;
         
-        tilemapPosCalculator.CalculatePosition(point);
+        var hasTile = itemGenerater.CalculatePositionAndCheckItHasTile(point);
+
+        if (hasTile)
+        {
+            itemGenerater.GenerateItem();
+        }
     }
 
     void Start()

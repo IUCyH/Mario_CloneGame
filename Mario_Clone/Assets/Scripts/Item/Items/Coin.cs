@@ -4,8 +4,36 @@ using UnityEngine;
 
 public class Coin : Item
 {
-    protected override void PlayShowAnimation()
+    Transform coin;
+    [SerializeField]
+    float animDuration = 1f;
+
+    IEnumerator Coroutine_ShowAnimation(Vector3 targetPos)
     {
+        float time = 0f;
+        
+        while (true)
+        {
+            var posProgress = Vector3.Lerp(coin.position, targetPos, 0.5f); //수정예정
+            posProgress.x = coin.position.x;
+            posProgress.z = 0f;
+            
+            coin.position = posProgress;
+            
+            time += Time.deltaTime / animDuration;
+
+            if (time > 1f)
+            {
+                yield break;
+            }
+
+            yield return null;
+        }
+    }
+    
+    protected override void PlayShowAnimation(Vector3 targetPos)
+    {
+        StartCoroutine(Coroutine_ShowAnimation(targetPos));
         Debug.Log("It's Coin!");
     }
 }

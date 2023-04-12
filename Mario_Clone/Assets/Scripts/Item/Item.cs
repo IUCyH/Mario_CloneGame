@@ -10,7 +10,7 @@ public abstract class Item : MonoBehaviour
     Transform item;
     Vector3 itemPos;
 
-    protected abstract void PlayShowAnimation();
+    protected abstract void PlayShowAnimation(Vector3 targetPos);
 
     public void SetItemPosition(Vector3 position)
     {
@@ -21,7 +21,7 @@ public abstract class Item : MonoBehaviour
     {
         item.position = itemPos;
 
-        PlayShowAnimation();
+        PlayShowAnimation(itemPos);
     }
 
     void OnBecameInvisible()

@@ -6321,7 +6321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMove: {fileID: 1519013954}
   playerJump: {fileID: 1519013951}
-  tilemapPosCalculator: {fileID: 968173810}
+  itemGenerater: {fileID: 968173810}
   playerMovementLimit: {fileID: 1519013953}
   feetPos: {fileID: 1920303166}
   headPos: {fileID: 450550194}
