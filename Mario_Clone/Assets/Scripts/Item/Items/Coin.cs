@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,16 +11,14 @@ public class Coin : Item
 
     IEnumerator Coroutine_ShowAnimation(Vector3 targetPos)
     {
-        Vector3 coinOrginPos = coin.position;
         float time = 0f;
 
         while (true)
         {
-            var posProgress = Vector3.Lerp(coinOrginPos, targetPos, 0.5f); //수정예정
-            posProgress.x = coin.position.x;
-            posProgress.z = 0f;
+            var nextY = Mathf.Lerp(coin.position.y, targetPos.y, 0.008f);//수정예정
+            var coinPos = coin.position;
             
-            coin.position = posProgress;
+            coin.position = new Vector3(coinPos.x, nextY, coinPos.z);
             
             time += Time.deltaTime / animDuration;
 
@@ -35,6 +34,10 @@ public class Coin : Item
     protected override void PlayShowAnimation(Vector3 targetPos)
     {
         StartCoroutine(Coroutine_ShowAnimation(targetPos));
-        Debug.Log("It's Coin!");
+    }
+
+    protected override void OnStart()
+    {
+        coin = transform;
     }
 }

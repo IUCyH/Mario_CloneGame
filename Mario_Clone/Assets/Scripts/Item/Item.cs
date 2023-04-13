@@ -7,10 +7,11 @@ using Random = System.Random;
 
 public abstract class Item : MonoBehaviour
 {
-    Transform item;
     Vector3 itemPos;
+    float finalItemPosY = 1.5f;
 
     protected abstract void PlayShowAnimation(Vector3 targetPos);
+    protected virtual void OnStart(){}
 
     public void SetItemPosition(Vector3 position)
     {
@@ -19,18 +20,16 @@ public abstract class Item : MonoBehaviour
     
     void OnEnable()
     {
+        var item = transform;
         item.position = itemPos;
-
+        itemPos.y += finalItemPosY;
+        
+        OnStart();
         PlayShowAnimation(itemPos);
     }
 
     void OnBecameInvisible()
     {
         ItemManager.Instance.DestroyItem(gameObject);
-    }
-
-    void Awake()
-    {
-        item = transform;
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class ItemGenerate : MonoBehaviour
+public class ItemGenerator : SingletonMonoBehaviour<ItemGenerator>
 {
     [SerializeField]
     Tilemap tilemap;
@@ -19,7 +19,6 @@ public class ItemGenerate : MonoBehaviour
         if (tilemap.HasTile(cellPos) && !cellGeneratedItemAlready.Contains(cellPos))
         {
             newItemPos = cellPos;
-            newItemPos.y += 2f;
             newItemPos.x += (tilemap.cellSize * 0.5f).x; //매직넘버 전환 등 수정예정
             
             cellGeneratedItemAlready.Add(cellPos);

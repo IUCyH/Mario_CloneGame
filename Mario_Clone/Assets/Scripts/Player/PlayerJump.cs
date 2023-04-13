@@ -39,6 +39,11 @@ public class PlayerJump : MonoBehaviour
 
     int groundLayer;
 
+    public void ReleaseJump()
+    {
+        pressJumpKey = false;
+    }
+
     public void CheckJump()
     {
         if (steppingMonsterNow)

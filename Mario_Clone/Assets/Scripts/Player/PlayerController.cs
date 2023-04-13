@@ -10,8 +10,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     PlayerJump playerJump;
     [SerializeField]
-    ItemGenerate itemGenerater;
-    [SerializeField]
     MovementLimit playerMovementLimit;
     
     [SerializeField]
@@ -58,11 +56,13 @@ public class PlayerController : MonoBehaviour
             var contactObj = contacts[i];
             var contactObjCollider = contactObj.collider;
             
+            if(contactObj.point.y > headPos.position.y) playerJump.ReleaseJump();
+            
             if (contactObjCollider.CompareTag("Monster"))
             {
                 ActionWhenMonsterCollided(contactObjCollider.transform);  
             }
-            if(contactObjCollider.CompareTag("MysteryBox"))
+            else if(contactObjCollider.CompareTag("MysteryBox"))
             {
                 ActionWhenMysteryBoxCollied(contactObj.point);
             }
@@ -90,11 +90,11 @@ public class PlayerController : MonoBehaviour
     {
         if (headPos.position.y > point.y) return;
         
-        var hasTile = itemGenerater.CalculatePositionAndCheckItHasTile(point);
+        var hasTile = ItemGenerator.Instance.CalculatePositionAndCheckItHasTile(point);
 
         if (hasTile)
         {
-            itemGenerater.GenerateItem();
+            ItemGenerator.Instance.GenerateItem();
         }
     }
 
