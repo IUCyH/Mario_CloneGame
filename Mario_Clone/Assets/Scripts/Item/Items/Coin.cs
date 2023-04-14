@@ -36,6 +36,11 @@ public class Coin : Item
         StartCoroutine(Coroutine_ShowAnimation(targetPos));
     }
 
+    protected override void AddEffectToPlayer()
+    {
+        DataManager.Instance.IncreaseCoin(1);
+    }
+
     protected override void OnStart()
     {
         coin = transform;

@@ -9,6 +9,7 @@ TagManager:
   - Map
   - Shell
   - MysteryBox
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Player
   - Shell
   - DieMonster
-  - 
+  - Item
   - 
   - 
   - 

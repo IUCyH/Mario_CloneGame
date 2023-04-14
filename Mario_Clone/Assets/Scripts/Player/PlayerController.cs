@@ -64,7 +64,11 @@ public class PlayerController : MonoBehaviour
             }
             else if(contactObjCollider.CompareTag("MysteryBox"))
             {
-                ActionWhenMysteryBoxCollied(contactObj.point);
+                ActionWhenMysteryBoxCollided(contactObj.point);
+            }
+            else if (contactObjCollider.CompareTag("Item"))
+            {
+                ActionWhenItemCollided(contactObjCollider);
             }
         }
     }
@@ -86,7 +90,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void ActionWhenMysteryBoxCollied(Vector3 point)
+    void ActionWhenMysteryBoxCollided(Vector3 point)
     {
         if (headPos.position.y > point.y) return;
         
@@ -95,6 +99,15 @@ public class PlayerController : MonoBehaviour
         if (hasTile)
         {
             ItemGenerator.Instance.GenerateItem();
+        }
+    }
+
+    void ActionWhenItemCollided(Collider2D collidedObj)
+    {
+        var item = collidedObj.gameObject.GetComponent<Item>();
+        if (item != null)
+        {
+            item.GiveEffectAndDestroy();
         }
     }
 

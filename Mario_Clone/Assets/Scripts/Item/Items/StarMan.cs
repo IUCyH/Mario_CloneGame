@@ -33,6 +33,11 @@ public class StarMan : Item
     {
         StartCoroutine(Coroutine_ShowAnimation(targetPos));
     }
+    
+    protected override void AddEffectToPlayer()
+    {
+        
+    }
 
     protected override void OnStart()
     {

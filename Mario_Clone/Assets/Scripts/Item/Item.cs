@@ -11,8 +11,19 @@ public abstract class Item : MonoBehaviour
     float finalItemPosY = 1.5f;
 
     protected abstract void PlayShowAnimation(Vector3 targetPos);
+    protected abstract void AddEffectToPlayer();
     protected virtual void OnStart(){}
 
+    public void GiveEffectAndDestroy()
+    {
+        AddEffectToPlayer();
+        DestroyItem();
+    }
+    void DestroyItem()
+    {
+        ItemManager.Instance.DestroyItem(gameObject);
+    }
+    
     public void SetItemPosition(Vector3 position)
     {
         itemPos = position;
