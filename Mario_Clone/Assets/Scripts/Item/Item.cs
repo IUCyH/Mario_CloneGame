@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Random = System.Random;
 
 public abstract class Item : MonoBehaviour
 {
     Vector3 itemPos;
-    float finalItemPosY = 1.5f;
+    float finalItemPosY = 1.3f;
 
     protected abstract void PlayShowAnimation(Vector3 targetPos);
     protected abstract void AddEffectToPlayer();
@@ -34,7 +35,7 @@ public abstract class Item : MonoBehaviour
         var item = transform;
         item.position = itemPos;
         itemPos.y += finalItemPosY;
-        
+
         OnStart();
         PlayShowAnimation(itemPos);
     }

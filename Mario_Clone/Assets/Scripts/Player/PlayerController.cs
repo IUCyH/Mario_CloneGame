@@ -48,28 +48,37 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        GameObject prevGameObject = null;
         var contacts = col.contacts;
         int contactsCount = contacts.Length;
-        
+
         for (int i = 0; i < contactsCount; i++)
         {
             var contactObj = contacts[i];
             var contactObjCollider = contactObj.collider;
-            
+
+            if (prevGameObject != null && contactObjCollider.gameObject == prevGameObject) continue;
             if(contactObj.point.y > headPos.position.y) playerJump.ReleaseJump();
             
-            if (contactObjCollider.CompareTag("Monster"))
-            {
-                ActionWhenMonsterCollided(contactObjCollider.transform);  
-            }
-            else if(contactObjCollider.CompareTag("MysteryBox"))
-            {
-                ActionWhenMysteryBoxCollided(contactObj.point);
-            }
-            else if (contactObjCollider.CompareTag("Item"))
-            {
-                ActionWhenItemCollided(contactObjCollider);
-            }
+            ActionOnTag(contactObjCollider, contactObj);
+
+            prevGameObject = contactObjCollider.gameObject;
+        }
+    }
+
+    void ActionOnTag(Collider2D contactObjCollider, ContactPoint2D contactObj)
+    {
+        if (contactObjCollider.CompareTag("Monster"))
+        {
+            ActionWhenMonsterCollided(contactObjCollider.transform);  
+        }
+        else if(contactObjCollider.CompareTag("MysteryBox"))
+        {
+            ActionWhenMysteryBoxCollided(contactObj.point);
+        }
+        else if (contactObjCollider.CompareTag("Item"))
+        {
+            ActionWhenItemCollided(contactObjCollider);
         }
     }
 
@@ -95,7 +104,7 @@ public class PlayerController : MonoBehaviour
         if (headPos.position.y > point.y) return;
         
         var hasTile = ItemGenerator.Instance.CalculatePositionAndCheckItHasTile(point);
-
+        Debug.Log(hasTile);
         if (hasTile)
         {
             ItemGenerator.Instance.GenerateItem();

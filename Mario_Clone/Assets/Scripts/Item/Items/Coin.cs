@@ -26,7 +26,7 @@ public class Coin : Item
             {
                 yield break;
             }
-
+            
             yield return null;
         }
     }
@@ -39,6 +39,7 @@ public class Coin : Item
     protected override void AddEffectToPlayer()
     {
         DataManager.Instance.IncreaseCoin(1);
+        UIManager.Instance.UpdateCoinText(DataManager.Instance.Coin);
     }
 
     protected override void OnStart()

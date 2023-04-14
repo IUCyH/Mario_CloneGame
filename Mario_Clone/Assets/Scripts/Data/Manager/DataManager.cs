@@ -6,6 +6,8 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
 {
     const string PlayerJsonData = "PlayerData";
     PlayerData playerData;
+    
+    public uint Coin { get => playerData.coin; }
 
     public void IncreaseCoin(uint coin)
     {
@@ -54,6 +56,7 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     // Start is called before the first frame update
     protected override void OnStart()
     {
+        PlayerPrefs.DeleteAll();
         Load();
     }
 }

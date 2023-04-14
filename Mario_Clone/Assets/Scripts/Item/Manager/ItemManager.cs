@@ -30,17 +30,17 @@ public class ItemManager : SingletonMonoBehaviour<ItemManager>
 
     public void DestroyItem(GameObject item)
     {
-        itemPool.Set(item);
         Destroy(item.GetComponent<Item>());
         
         item.SetActive(false);
+        itemPool.Set(item);
     }
     
     public void ShowItem(Vector3 itemPosition)
     {
         var item = itemPool.Get();
         SetItem(item, itemPosition);
-        
+
         item.SetActive(true);
     }
     

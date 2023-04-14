@@ -24,7 +24,7 @@ public class MagicMushroom : Item
             {
                 yield break;
             }
-
+            
             yield return null;
         }
     }

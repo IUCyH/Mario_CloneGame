@@ -24,7 +24,7 @@ public class StarMan : Item
             {
                 yield break;
             }
-
+            
             yield return null;
         }
     }

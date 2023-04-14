@@ -24,7 +24,7 @@ public class UpMushroom : Item
             {
                 yield break;
             }
-
+            
             yield return null;
         }
     }
