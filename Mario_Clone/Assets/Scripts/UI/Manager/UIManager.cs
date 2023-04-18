@@ -10,11 +10,20 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     StringBuilder sb = new StringBuilder();
     [SerializeField]
     TMP_Text coinText;
+    [SerializeField]
+    TMP_Text timerText;
 
     public void UpdateCoinText(uint coin)
     {
         sb.Clear();
-        sb.AppendFormat("<size=25><font=brother-ep-20-22-electronic-typewriter-square>x</font></size> {0:00}", coin);
+        sb.AppendFormat("{0:00}", coin);
         coinText.text = sb.ToString();
+    }
+
+    public void UpdateTimerText(short timer)
+    {
+        sb.Clear();
+        sb.Append(timer);
+        timerText.text = sb.ToString();
     }
 }
