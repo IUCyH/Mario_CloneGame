@@ -9,7 +9,8 @@ using Random = System.Random;
 public abstract class Item : MonoBehaviour
 {
     Vector3 itemPos;
-    float finalItemPosY = 1.3f;
+    [SerializeField] 
+    float finalItemPosY = 1f;
 
     protected abstract void PlayShowAnimation(Vector3 targetPos);
     protected abstract void AddEffectToPlayer();

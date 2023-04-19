@@ -7,23 +7,25 @@ V
 &Assets/Scripts/Player/MovementLimit.cs,f\1\f101a2810ea892e81c5fa2ccb3be1d548c19d828
 Y
 )Assets/Scripts/Monster/Monsters/Goomba.cs,3\4\343915b09190ee15aec6fd400c9562fccbbd34e4
-U
-%Assets/Scripts/Utill/ItemGenerator.cs,7\2\72560f0fa7915ebf899dde5f001b3fa2366d64bd
-K
-Assets/Scripts/Item/Item.cs,7\6\762c76fbe6041300b4702cfd8d035ae2b49118e3
+?
+Mario_Clone.sln,5\f\5fe3f635c272a951ef2c0e11e50e99cb45214730
 Y
 )Assets/Scripts/Player/PlayerController.cs,c\1\c1b2abcd3d72732cf3bf687bc9080c1357596be9
-Z
-*Assets/Scripts/Item/Manager/ItemManager.cs,0\8\088cb30c24ba56b517805e2c33fb0dd714022102
-Z
-*Assets/Scripts/Data/Manager/DataManager.cs,a\1\a127eafd10763e5792aa0932f58575deda205e42
-Q
-!Assets/Scripts/Item/Items/Coin.cs,a\8\a8d3a57b112e71fcc63e547db7ff2d769d84be0a
 V
 &Assets/Scripts/UI/Manager/UIManager.cs,f\3\f374e28e3ac695f0881b9e9e444d33b4b28a3675
 S
 #Assets/Scripts/GameSystemManager.cs,4\7\474df67a9af401f032d741224fdae9b426e1d456
-b
-2Assets/Scripts/Monster/Abstract Class/MonsterAI.cs,7\7\777254de85f61d9bbc57ec21c07b68d57fc4b85e
+Q
+!Assets/Scripts/Item/Items/Coin.cs,a\8\a8d3a57b112e71fcc63e547db7ff2d769d84be0a
 X
 (Assets/Scripts/Monster/Monsters/Koopa.cs,f\4\f41876ae3528861d7b34bd77fdbd486d580808cb
+Z
+*Assets/Scripts/Item/Manager/ItemManager.cs,0\8\088cb30c24ba56b517805e2c33fb0dd714022102
+b
+2Assets/Scripts/Monster/Abstract Class/MonsterAI.cs,7\7\777254de85f61d9bbc57ec21c07b68d57fc4b85e
+Z
+*Assets/Scripts/Data/Manager/DataManager.cs,a\1\a127eafd10763e5792aa0932f58575deda205e42
+K
+Assets/Scripts/Item/Item.cs,7\6\762c76fbe6041300b4702cfd8d035ae2b49118e3
+U
+%Assets/Scripts/Utill/ItemGenerator.cs,7\2\72560f0fa7915ebf899dde5f001b3fa2366d64bd

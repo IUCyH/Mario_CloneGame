@@ -15,9 +15,15 @@ public class ItemGenerator : SingletonMonoBehaviour<ItemGenerator>
 
     public bool CalculatePositionAndCheckItHasTile(Vector3 collisionPoint)
     {
-        collisionPoint += grid.cellSize * 0.5f;
+        //collisionPoint += grid.cellSize * 0.5f;
+        Debug.Log("collision Point : " + collisionPoint);
         var cellPos = grid.WorldToCell(collisionPoint);
-        bool hasTile = tilemap.HasTile(cellPos);
+        var debugCellPos = cellPos;
+        debugCellPos.x += (int)(grid.cellSize * 0.5f).x;
+        debugCellPos.y += (int)(grid.cellSize * 0.5f).y;
+        Debug.Log("cell Position : " + debugCellPos);
+
+        bool hasTile = tilemap.HasTile(debugCellPos);
         //var cell = tilemap.GetTile(cellPos);
         
         //Debug.Log(cellPos);
