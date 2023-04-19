@@ -18,6 +18,7 @@ public class ItemManager : SingletonMonoBehaviour<ItemManager>
     }
     
     ObjectPool<GameObject> itemPool;
+    List<Vector3> usedItemBoxes = new List<Vector3>();
     
     [SerializeField]
     GameObject itemGameObj;
@@ -38,6 +39,10 @@ public class ItemManager : SingletonMonoBehaviour<ItemManager>
     
     public void ShowItem(Vector3 itemPosition)
     {
+        if (usedItemBoxes.Contains(itemPosition)) return;
+        Debug.Log("Generate Item");
+        usedItemBoxes.Add(itemPosition);
+        
         var item = itemPool.Get();
         SetItem(item, itemPosition);
 

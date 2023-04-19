@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(contactObjCollider.CompareTag("MysteryBox"))
         {
-            ActionWhenMysteryBoxCollided(contactObj.point);
+            ActionWhenMysteryBoxCollided(contactObj.point, contactObjCollider.gameObject);
         }
         else if (contactObjCollider.CompareTag("Item"))
         {
@@ -99,16 +99,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void ActionWhenMysteryBoxCollided(Vector3 point)
+    void ActionWhenMysteryBoxCollided(Vector3 point, GameObject collidedObj)
     {
-        if (headPos.position.y > point.y) return;
+        if(point.y < headPos.position.y) return;
         
-        var hasTile = ItemGenerator.Instance.CalculatePositionAndCheckItHasTile(point);
-        Debug.Log(hasTile);
-        if (hasTile)
-        {
-            ItemGenerator.Instance.GenerateItem();
-        }
+        ItemManager.Instance.ShowItem(collidedObj.transform.position);
+        
+        print(collidedObj.transform.position);
     }
 
     void ActionWhenItemCollided(Collider2D collidedObj)
