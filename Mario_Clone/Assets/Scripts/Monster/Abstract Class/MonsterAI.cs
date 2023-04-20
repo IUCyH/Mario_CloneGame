@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public enum MonsterState
@@ -38,6 +39,21 @@ public abstract class MonsterAI : MonoBehaviour
     protected virtual void AdditionalActionsWhenGotDamage(){}
     protected virtual void AdditionalActionWhenCollided(Collision2D col){}
 
+    IEnumerator Coroutine_Update()
+    {
+        while (true)
+        {
+            if (!GameSystemManager.Instance.IsInsideTheCamera(monster))
+            {
+                if (player.position.x > monster.position.x)
+                {
+                    OutsideTheScreen = true;
+                }
+            }
+            yield return null;
+        }
+    }
+    
     public void SetDie()
     {
         currentState = MonsterState.Die;
@@ -102,6 +118,7 @@ public abstract class MonsterAI : MonoBehaviour
         OutsideTheScreen = false;
         
         SetMonster();
+        StartCoroutine(Coroutine_Update());
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -116,12 +133,5 @@ public abstract class MonsterAI : MonoBehaviour
         if (contactTransform.CompareTag(MysteryBoxTag)) return;
 
         ChangeToOppositeDir();
-    }
-    
-    void OnBecameInvisible()
-    {
-        if (player.position.x < monster.position.x) return;
-        
-        OutsideTheScreen = true;
     }
 }

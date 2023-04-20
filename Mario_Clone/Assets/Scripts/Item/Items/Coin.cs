@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : Item
+public class Coin : MonoBehaviour, Item
 {
-    Transform coin;
     [SerializeField]
     float animDuration = 1f;
 
     IEnumerator Coroutine_ShowAnimation(Vector3 targetPos)
     {
+        var coin = transform;
         float time = 0f;
 
         while (true)
@@ -31,19 +31,14 @@ public class Coin : Item
         }
     }
     
-    protected override void PlayShowAnimation(Vector3 targetPos)
+    public void PlayShowAnimation(Vector3 targetPos)
     {
         StartCoroutine(Coroutine_ShowAnimation(targetPos));
     }
 
-    protected override void AddEffectToPlayer()
+    public void AddEffectToPlayer()
     {
         DataManager.Instance.IncreaseCoin(1);
         UIManager.Instance.UpdateCoinText(DataManager.Instance.Coin);
-    }
-
-    protected override void OnStart()
-    {
-        coin = transform;
     }
 }

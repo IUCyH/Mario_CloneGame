@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpMushroom : Item
+public class UpMushroom : MonoBehaviour, Item
 {
-    Transform upMushroom;
+    [SerializeField]
     float animDuration = 1f;
     
     IEnumerator Coroutine_ShowAnimation(Vector3 targetPos)
     {
+        var upMushroom = transform;
         float time = 0f;
 
         while (true)
@@ -29,18 +30,13 @@ public class UpMushroom : Item
         }
     }
     
-    protected override void PlayShowAnimation(Vector3 targetPos)
+    public void PlayShowAnimation(Vector3 targetPos)
     {
         StartCoroutine(Coroutine_ShowAnimation(targetPos));
     }
     
-    protected override void AddEffectToPlayer()
+    public void AddEffectToPlayer()
     {
-        
-    }
-
-    protected override void OnStart()
-    {
-        upMushroom = transform;
+        Debug.Log("up mushroom!");
     }
 }

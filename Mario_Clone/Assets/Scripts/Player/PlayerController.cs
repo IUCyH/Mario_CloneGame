@@ -48,24 +48,12 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        GameObject prevGameObject = null;
-        var contacts = col.contacts;
-        int contactsCount = contacts.Length;
-
-        for (int i = 0; i < contactsCount; i++)
-        {
-            var contactObj = contacts[i];
-            var contactObjCollider = contactObj.collider;
-
-            if (prevGameObject != null && contactObjCollider.gameObject == prevGameObject) continue;
-            if(contactObj.point.y > headPos.position.y) playerJump.ReleaseJump();
-            
-            ActionOnTag(contactObjCollider, contactObj);
-
-            prevGameObject = contactObjCollider.gameObject;
-        }
+        var contactObj = col.contacts[0];
+        
+        if (contactObj.point.y > headPos.position.y) playerJump.ReleaseJump();
+        ActionOnTag(col.collider, contactObj);
     }
-
+    
     void ActionOnTag(Collider2D contactObjCollider, ContactPoint2D contactObj)
     {
         if (contactObjCollider.CompareTag("Monster"))
@@ -103,14 +91,12 @@ public class PlayerController : MonoBehaviour
     {
         if(point.y < headPos.position.y) return;
         
-        ItemManager.Instance.ShowItem(collidedObj.transform.position);
-        
-        print(collidedObj.transform.position);
+        ItemManager.Instance.ShowItem(collidedObj.transform.position, collidedObj);
     }
 
     void ActionWhenItemCollided(Collider2D collidedObj)
     {
-        var item = collidedObj.gameObject.GetComponent<Item>();
+        var item = collidedObj.gameObject.GetComponent<ItemController>();
         if (item != null)
         {
             item.GiveEffectAndDestroy();

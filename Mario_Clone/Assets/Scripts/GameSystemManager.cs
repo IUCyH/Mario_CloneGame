@@ -6,6 +6,8 @@ using UnityEngine;
 public class GameSystemManager : SingletonMonoBehaviour<GameSystemManager>
 {
     [SerializeField]
+    CameraController cameraController;
+    [SerializeField]
     short gameLimitTime = 400;
 
     IEnumerator Coroutine_Timer()
@@ -19,6 +21,11 @@ public class GameSystemManager : SingletonMonoBehaviour<GameSystemManager>
 
             yield return waitForSecond;
         }
+    }
+
+    public bool IsInsideTheCamera(Transform obj)
+    {
+        return cameraController.IsInsideTheCamera(obj);
     }
 
     protected override void OnStart()

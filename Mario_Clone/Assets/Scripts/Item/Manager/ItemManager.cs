@@ -7,7 +7,7 @@ using Random = System.Random;
 
 public class ItemManager : SingletonMonoBehaviour<ItemManager>
 {
-    enum ItemType
+    public enum ItemType
     {
         None = -1,
         Coin,
@@ -18,65 +18,51 @@ public class ItemManager : SingletonMonoBehaviour<ItemManager>
     }
     
     ObjectPool<GameObject> itemPool;
-    List<Vector3> usedItemBoxes = new List<Vector3>();
-    
+    Random random = new Random();
+
     [SerializeField]
-    GameObject itemGameObj;
+    GameObject itemObj;
+    [SerializeField]
+    GameObject interactiveTile;
     [SerializeField]
     Sprite[] itemSprites;
 
-    Random random = new Random();
-    
     Transform itemManagerTransform;
+    Dictionary<GameObject, bool> usedItemBoxes = new Dictionary<GameObject, bool>();
 
+    
+    
     public void DestroyItem(GameObject item)
     {
-        Destroy(item.GetComponent<Item>());
-        
         item.SetActive(false);
         itemPool.Set(item);
     }
     
-    public void ShowItem(Vector3 itemPosition)
+    public void ShowItem(Vector3 itemPosition, GameObject itemBox)
     {
-        if (usedItemBoxes.Contains(itemPosition)) return;
-        Debug.Log("Generate Item");
-        usedItemBoxes.Add(itemPosition);
-        
+        if (usedItemBoxes[itemBox]) return;
+
+        usedItemBoxes[itemBox] = true;
+
         var item = itemPool.Get();
-        SetItem(item, itemPosition);
+        var itemController = SetItem(item, itemPosition);
 
         item.SetActive(true);
+        itemController.OnShow();
     }
     
-    void SetItem(GameObject item, Vector3 itemPosition)
+    ItemController SetItem(GameObject item, Vector3 itemPosition)
     {
         var itemType = GetRandomItem();
-        Item itemInstance = null;
-        
-        switch (itemType)
-        {
-            case ItemType.Coin:
-                itemInstance = item.AddComponent<Coin>();
-                break;
-            case ItemType.MagicMushroom:
-                itemInstance = item.AddComponent<MagicMushroom>();
-                break;
-            case ItemType.UpMushroom:
-                itemInstance = item.AddComponent<UpMushroom>();
-                break;
-            case ItemType.StarMan:
-                itemInstance = item.AddComponent<StarMan>();
-                break;
-        }
-
         var spriteRenderer = item.GetComponent<SpriteRenderer>();
+        var itemInstance = item.GetComponent<ItemController>();
+
+        itemInstance.SetItemType(itemType);
+        itemInstance.SetItemPosition(itemPosition);
+        
         spriteRenderer.sprite = GetItemSprite((int)itemType);
 
-        if (itemInstance != null)
-        {
-            itemInstance.SetItemPosition(itemPosition);
-        }
+        return itemInstance;
     }
     
     ItemType GetRandomItem()
@@ -88,6 +74,16 @@ public class ItemManager : SingletonMonoBehaviour<ItemManager>
     {
         return itemSprites[type];
     }
+
+    void InitUsedItemBoxes()
+    {
+        var itemBoxes = interactiveTile.GetComponentsInChildren<SpriteRenderer>();
+
+        for (int i = 0; i < itemBoxes.Length; i++)
+        {
+            usedItemBoxes.Add(itemBoxes[i].gameObject, false);
+        }
+    }
     
     protected override void OnStart()
     {
@@ -96,7 +92,7 @@ public class ItemManager : SingletonMonoBehaviour<ItemManager>
         itemSprites = Resources.LoadAll<Sprite>("Item/Sprites");
         itemPool = new ObjectPool<GameObject>(itemSprites.Length * 2, () =>
         {
-            var obj = Instantiate(itemGameObj);
+            var obj = Instantiate(itemObj);
             var objTransform = obj.transform;
             
             objTransform.SetParent(itemManagerTransform);
@@ -107,5 +103,6 @@ public class ItemManager : SingletonMonoBehaviour<ItemManager>
             
             return obj;
         });
+        InitUsedItemBoxes();
     }
 }

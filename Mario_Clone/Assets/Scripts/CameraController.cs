@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    Camera mainCam;
     [SerializeField]
     Transform cam;
     [SerializeField]
@@ -15,6 +16,18 @@ public class CameraController : MonoBehaviour
 
     [SerializeField]
     float playerAdditionalPosX;
+
+    public bool IsInsideTheCamera(Transform obj)
+    {
+        var viewPort = mainCam.WorldToViewportPoint(obj.position);
+        
+        if (viewPort.x >= 0 && viewPort.y >= 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
 
     void Move()
     {
@@ -37,6 +50,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         nextPosition = new Vector3(0f, 0f, -10f);
+        mainCam = Camera.main;
     }
 
     // Update is called once per frame
