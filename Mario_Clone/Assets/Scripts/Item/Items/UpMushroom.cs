@@ -39,4 +39,9 @@ public class UpMushroom : MonoBehaviour, Item
     {
         Debug.Log("up mushroom!");
     }
+    
+    public void OnStart()
+    {
+        
+    }
 }

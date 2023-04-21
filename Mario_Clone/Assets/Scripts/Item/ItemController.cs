@@ -27,20 +27,6 @@ public class ItemController : MonoBehaviour
     [SerializeField] 
     float finalItemPosY = 1f;
     
-    IEnumerator Coroutine_Update()
-    {
-        while (true)
-        {
-            if (!GameSystemManager.Instance.IsInsideTheCamera(transform))
-            {
-                Debug.Log("It became invisible");
-                DestroyItem();
-            }
-
-            yield return null;
-        }
-    }
-
     public void SetItemType(ItemType type)
     {
         itemType = type;
@@ -63,7 +49,7 @@ public class ItemController : MonoBehaviour
         itemPos.y += finalItemPosY;
         
         itemFuncExecuteMedium.PlayShowAnimation(itemPos, itemType);
-        itemCollider.enabled = true;
+        //itemCollider.enabled = true;
     }
     
     void DestroyItem()
@@ -77,9 +63,12 @@ public class ItemController : MonoBehaviour
         itemCollider = GetComponent<BoxCollider2D>();
         itemTransform = transform;
     }
-
-    void Start()
+    
+    void Update()
     {
-        StartCoroutine(Coroutine_Update());
+        if (!GameSystemManager.Instance.IsInsideTheCamera(transform))
+        {
+            DestroyItem();
+        }
     }
 }

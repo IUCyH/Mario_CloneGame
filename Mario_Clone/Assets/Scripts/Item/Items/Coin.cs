@@ -41,4 +41,9 @@ public class Coin : MonoBehaviour, Item
         DataManager.Instance.IncreaseCoin(1);
         UIManager.Instance.UpdateCoinText(DataManager.Instance.Coin);
     }
+
+    public void OnStart()
+    {
+        
+    }
 }

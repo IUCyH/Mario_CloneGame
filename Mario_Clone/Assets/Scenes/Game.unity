@@ -8382,6 +8382,12 @@ MonoBehaviour:
   playerMovementLimit: {fileID: 1519013953}
   feetPos: {fileID: 1920303166}
   headPos: {fileID: 450550194}
+  stateCoolDowns:
+  - 1
+  - 1
+  playerState: 0
+  stateCoolDown: 0
+  stateCoolTimer: 0
 --- !u!95 &1519013950
 Animator:
   serializedVersion: 3

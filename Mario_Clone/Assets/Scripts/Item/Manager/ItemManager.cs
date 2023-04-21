@@ -90,7 +90,7 @@ public class ItemManager : SingletonMonoBehaviour<ItemManager>
         itemManagerTransform = transform;
 
         itemSprites = Resources.LoadAll<Sprite>("Item/Sprites");
-        itemPool = new ObjectPool<GameObject>(itemSprites.Length * 2, () =>
+        itemPool = new ObjectPool<GameObject>(itemSprites.Length, () =>
         {
             var obj = Instantiate(itemObj);
             var objTransform = obj.transform;

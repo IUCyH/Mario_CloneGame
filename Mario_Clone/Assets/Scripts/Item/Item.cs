@@ -10,4 +10,5 @@ public interface Item
 {
     void PlayShowAnimation(Vector3 targetPos);
     void AddEffectToPlayer();
+    void OnStart();
 }

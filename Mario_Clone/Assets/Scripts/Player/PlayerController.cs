@@ -1,8 +1,17 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public enum PlayerState
+    {
+        None = -1,
+        Invincibility,
+        BigMario,
+        SmallMario
+    }
+    
     PlayerAnimation playerAnimController;
     
     [SerializeField]
@@ -16,12 +25,34 @@ public class PlayerController : MonoBehaviour
     Transform feetPos;
     [SerializeField]
     Transform headPos;
-
+    
+    [Tooltip("*현재 설정해야 하는 List 크기 : 2*\n각 인덱스가 나타내는 PlayerState : (0 : Invincibility, 1 : BigMario)")]
+    [SerializeField]
+    [Range(0.1f, 1f)]
+    List<float> stateCoolDowns = new List<float>();
+    
+    [SerializeField]
+    PlayerState playerState;
+    
     int jumpCount;
+    [SerializeField]
+    float stateCoolDown;
+    [SerializeField]
+    float stateCoolTimer;
     bool isPressedJumpKey;
+    
+    public PlayerState GetPlayerState { get => playerState; }
+
+    public void SetPlayerState(PlayerState state)
+    {
+        playerState = state;
+        stateCoolDown = GetStateCoolDown();
+    }
 
     public void SetDie()
     {
+        if (StateEquals(PlayerState.Invincibility)) return;
+        
         playerAnimController.Play(PlayerMotion.Die);
         Time.timeScale = 0f;
     }
@@ -72,13 +103,14 @@ public class PlayerController : MonoBehaviour
 
     void ActionWhenMonsterCollided(Transform monsterTransform)
     {
-        if (monsterTransform.position.y <= feetPos.position.y)
+        var isInvisible = StateEquals(PlayerState.Invincibility);
+        if (monsterTransform.position.y <= feetPos.position.y || isInvisible)
         {
             var monster = monsterTransform.GetComponent<MonsterAI>();
             if (monster != null)
             {
                 monster.SetDie();
-                playerJump.JumpWhenSteppingMonster();
+                if(!isInvisible) playerJump.JumpWhenSteppingMonster();
             }
         }
         else
@@ -103,15 +135,44 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    float GetStateCoolDown()
+    {
+        if (StateEquals(PlayerState.None) || StateEquals(PlayerState.SmallMario)) return 0f;
+        
+        return stateCoolDowns[(int)playerState];
+    }
+
+    bool StateEquals(PlayerState targetState)
+    {
+        return playerState == targetState;
+    }
+
+    void CheckStateCoolDown()
+    {
+        if (StateEquals(PlayerState.None) || StateEquals(PlayerState.SmallMario)) return;
+
+        stateCoolTimer += Time.deltaTime;
+
+        if (stateCoolTimer > stateCoolDown)
+        {
+            stateCoolTimer = 0f;
+            SetPlayerState(PlayerState.SmallMario);
+        }
+    }
+    
     void Start()
     {
         playerAnimController = new PlayerAnimation(GetComponent<Animator>());
+        SetPlayerState(PlayerState.None);
     }
 
     void Update()
     {
         playerJump.CheckJump();
         playerMove.SetMoveSpeed();
+        CheckStateCoolDown();
+        
+        
 
         if (Input.GetKeyDown(KeyCode.P))
         {

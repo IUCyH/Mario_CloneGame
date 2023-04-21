@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MagicMushroom : MonoBehaviour, Item
 {
+    PlayerController player;
     [SerializeField]
     float animDuration = 1f;
     
@@ -37,6 +38,12 @@ public class MagicMushroom : MonoBehaviour, Item
     
     public void AddEffectToPlayer()
     {
-        Debug.Log("magic mushroom!");
+        player.SetPlayerState(PlayerController.PlayerState.BigMario);
+    }
+    
+    public void OnStart()
+    {
+        var playerObj = GameObject.FindWithTag("Player");
+        player = playerObj.GetComponent<PlayerController>();
     }
 }

@@ -96,7 +96,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966603002332671191}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d368fc912e1e39145b4584d838746103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
   finalItemPosY: 1
 --- !u!114 &6570074412759995554
 MonoBehaviour:
@@ -165,6 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba382854df4765c4695ba0c0d08920b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  animDuration: 1
 --- !u!114 &3326074534585262890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f19562e7d8d0274f92c432f2a386afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animDuration: 1
 --- !u!114 &4520818209862577974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,3 +193,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7c721d9851c46440900ce08b9080caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  animDuration: 1

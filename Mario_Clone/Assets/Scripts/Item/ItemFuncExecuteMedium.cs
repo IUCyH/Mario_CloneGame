@@ -23,6 +23,14 @@ public class ItemFuncExecuteMedium : MonoBehaviour
         InitItems();
     }
 
+    void Start()
+    {
+        foreach (var item in items.Values)
+        {
+            item.OnStart();
+        }
+    }
+
     void InitItems()
     {
         items.Add(ItemManager.ItemType.Coin, GetComponent<Coin>());

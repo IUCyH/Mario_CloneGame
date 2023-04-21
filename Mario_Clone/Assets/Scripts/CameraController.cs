@@ -20,8 +20,11 @@ public class CameraController : MonoBehaviour
     public bool IsInsideTheCamera(Transform obj)
     {
         var viewPort = mainCam.WorldToViewportPoint(obj.position);
+
+        bool XisInside = viewPort.x >= 0 && viewPort.x <= 1;
+        bool YisInside = viewPort.y >= 0 && viewPort.y <= 1;
         
-        if (viewPort.x >= 0 && viewPort.y >= 0)
+        if (XisInside && YisInside)
         {
             return true;
         }

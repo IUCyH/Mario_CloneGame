@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StarMan : MonoBehaviour, Item
 {
+    PlayerController player;
     [SerializeField]
     float animDuration = 1f;
     
@@ -37,6 +38,12 @@ public class StarMan : MonoBehaviour, Item
     
     public void AddEffectToPlayer()
     {
-        Debug.Log("star man!");
+        player.SetPlayerState(PlayerController.PlayerState.Invincibility);
+    }
+    
+    public void OnStart()
+    {
+        var playerObj = GameObject.FindWithTag("Player");
+        player = playerObj.GetComponent<PlayerController>();
     }
 }
