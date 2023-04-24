@@ -5,6 +5,8 @@ using UnityEngine;
 public class UpMushroom : MonoBehaviour, Item
 {
     [SerializeField]
+    BoxCollider2D collider2D;
+    [SerializeField]
     float animDuration = 1f;
     
     IEnumerator Coroutine_ShowAnimation(Vector3 targetPos)
@@ -20,6 +22,12 @@ public class UpMushroom : MonoBehaviour, Item
             upMushroom.position = new Vector3(coinPos.x, nextY, coinPos.z);
             
             time += Time.deltaTime / animDuration;
+            Debug.Log("Time : " + time);
+            
+            if (Mathf.Approximately(time, 0.5f))
+            {
+                collider2D.enabled = true;
+            }
 
             if (time > 1f)
             {
@@ -40,8 +48,8 @@ public class UpMushroom : MonoBehaviour, Item
         Debug.Log("up mushroom!");
     }
     
-    public void OnStart()
+    public void OnAwake()
     {
-        
+        collider2D.enabled = false;
     }
 }

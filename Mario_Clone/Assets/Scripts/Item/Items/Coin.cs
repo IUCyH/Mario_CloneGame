@@ -6,6 +6,8 @@ using UnityEngine;
 public class Coin : MonoBehaviour, Item
 {
     [SerializeField]
+    BoxCollider2D collider2D;
+    [SerializeField]
     float animDuration = 1f;
 
     IEnumerator Coroutine_ShowAnimation(Vector3 targetPos)
@@ -21,6 +23,12 @@ public class Coin : MonoBehaviour, Item
             coin.position = new Vector3(coinPos.x, nextY, coinPos.z);
             
             time += Time.deltaTime / animDuration;
+            Debug.Log("Time : " + time);
+
+            if (Mathf.Approximately(time, 0.5f))
+            {
+                collider2D.enabled = true;
+            }
 
             if (time > 1f)
             {
@@ -42,8 +50,8 @@ public class Coin : MonoBehaviour, Item
         UIManager.Instance.UpdateCoinText(DataManager.Instance.Coin);
     }
 
-    public void OnStart()
+    public void OnAwake()
     {
-        
+        collider2D.enabled = false;
     }
 }

@@ -21,13 +21,9 @@ public class ItemFuncExecuteMedium : MonoBehaviour
     public void Awake()
     {
         InitItems();
-    }
-
-    void Start()
-    {
         foreach (var item in items.Values)
         {
-            item.OnStart();
+            item.OnAwake();
         }
     }
 

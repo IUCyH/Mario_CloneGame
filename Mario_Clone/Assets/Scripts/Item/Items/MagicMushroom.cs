@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MagicMushroom : MonoBehaviour, Item
 {
+    [SerializeField]
+    BoxCollider2D collider2D;
     PlayerController player;
     [SerializeField]
     float animDuration = 1f;
@@ -21,6 +23,12 @@ public class MagicMushroom : MonoBehaviour, Item
             magicMushroom.position = new Vector3(coinPos.x, nextY, coinPos.z);
             
             time += Time.deltaTime / animDuration;
+            Debug.Log("Time : " + time);
+            
+            if (Mathf.Approximately(time, 0.5f))
+            {
+                collider2D.enabled = true;
+            }
 
             if (time > 1f)
             {
@@ -41,9 +49,10 @@ public class MagicMushroom : MonoBehaviour, Item
         player.SetPlayerState(PlayerController.PlayerState.BigMario);
     }
     
-    public void OnStart()
+    public void OnAwake()
     {
         var playerObj = GameObject.FindWithTag("Player");
         player = playerObj.GetComponent<PlayerController>();
+        collider2D.enabled = false;
     }
 }

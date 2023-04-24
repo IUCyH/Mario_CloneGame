@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d1ea1bf1678784da83e31305d5d75a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider2D: {fileID: -116381518887011969}
   animDuration: 1
 --- !u!114 &3726443226002385614
 MonoBehaviour:
@@ -166,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba382854df4765c4695ba0c0d08920b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  collider2D: {fileID: -116381518887011969}
   animDuration: 1
 --- !u!114 &3326074534585262890
 MonoBehaviour:
@@ -180,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f19562e7d8d0274f92c432f2a386afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider2D: {fileID: -116381518887011969}
   animDuration: 1
 --- !u!114 &4520818209862577974
 MonoBehaviour:
@@ -193,5 +195,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7c721d9851c46440900ce08b9080caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  collider2D: {fileID: -116381518887011969}
   animDuration: 1

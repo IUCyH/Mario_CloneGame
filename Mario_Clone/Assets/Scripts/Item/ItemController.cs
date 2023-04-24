@@ -16,7 +16,6 @@ using ItemType = ItemManager.ItemType;
 [RequireComponent(typeof(StarMan))]
 public class ItemController : MonoBehaviour
 {
-    BoxCollider2D itemCollider;
     Transform itemTransform;
     ItemFuncExecuteMedium itemFuncExecuteMedium;
     
@@ -49,7 +48,6 @@ public class ItemController : MonoBehaviour
         itemPos.y += finalItemPosY;
         
         itemFuncExecuteMedium.PlayShowAnimation(itemPos, itemType);
-        //itemCollider.enabled = true;
     }
     
     void DestroyItem()
@@ -60,7 +58,6 @@ public class ItemController : MonoBehaviour
     void Awake()
     {
         itemFuncExecuteMedium = GetComponent<ItemFuncExecuteMedium>();
-        itemCollider = GetComponent<BoxCollider2D>();
         itemTransform = transform;
     }
     
