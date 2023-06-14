@@ -30,8 +30,6 @@ public class ItemManager : SingletonMonoBehaviour<ItemManager>
     Transform itemManagerTransform;
     Dictionary<GameObject, bool> usedItemBoxes = new Dictionary<GameObject, bool>();
 
-    
-    
     public void DestroyItem(GameObject item)
     {
         item.SetActive(false);
